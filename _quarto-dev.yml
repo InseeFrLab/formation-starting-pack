@@ -1,6 +1,5 @@
 project:
   type: website
-
-render:
-  - index.qmd
-  - resources/python.qmd
+  render:
+    - index.qmd
+    - resources/python.qmd
