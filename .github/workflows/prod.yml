@@ -14,23 +14,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Upgrade dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install libglpk-dev
-      - uses: r-lib/actions/setup-r@v2
-      - name: Set up renv
-        uses: r-lib/actions/setup-renv@v2
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - run: |
-          pip install -r requirements.txt
+      # - name: Upgrade dependencies
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install libglpk-dev
+      # - uses: r-lib/actions/setup-r@v2
+      # - name: Set up renv
+      #   uses: r-lib/actions/setup-renv@v2
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.10'
+      # - run: |
+      #     pip install -r requirements.txt
       - name: Set up quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - run: |
           quarto render --to html
-          quarto render resources/python.qmd --to ipynb
+#           quarto render resources/python.qmd --to ipynb
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
