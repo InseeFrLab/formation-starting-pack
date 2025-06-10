@@ -16,7 +16,7 @@ format:
 
 render:
   - index.qmd
-  - resources/python.qmd
-  - resources/r.qmd
+  # - resources/python.qmd
+  # - resources/r.qmd
 
 author: "Lino Galiana"

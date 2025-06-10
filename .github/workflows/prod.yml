@@ -22,7 +22,6 @@ jobs:
       - name: Install R packages
         run: |
          Rscript -e 'install.packages(c("rmarkdown", "knitr"), repos = "https://cloud.r-project.org")'
-
       # - name: Set up renv
       #   uses: r-lib/actions/setup-renv@v2
       # - uses: actions/setup-python@v5
