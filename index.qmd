@@ -14,7 +14,7 @@ There are a few technical requirements:
 - [`SSPCloud` documentation](https://docs.sspcloud.fr/en/), in particular the fundamental difference between making resources available for execution on a local computer or on a server like the SSPCloud. 
 - Some knowledge regarding deployment of resources using `Github Actions` is useful. This tutorial gives a few templates but understanding them is not in the scope of that tutorial. 
 
-The aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. 
+The aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.
 
 # Why share educational resources on SSPCloud?
 
@@ -47,8 +47,6 @@ This tutorial assumes that educational resources and training material will be m
       - In Python, training material takes the form of a notebook. This is the standard delivery method for Python code.
       - In R, training material takes the form of an RStudio project (because notebooks are not frequently used in R). 
 
-The next sections explain how to create the starting tutorial, depending on whether you want to write R or Python resources. It's important to distinguish between the actions to be taken here and those that will be required from training users. For the latter, more direct ways of retrieving the training resource will be possible.
-
 # Developing educational resources
 
 ## Step 1: create a Github repository from a template
@@ -74,56 +72,37 @@ Here is a simple procedure to develop resources on the SSP-Cloud:
 
 ## R
 
+- Go the "My Services" Tab (red box);
+- Click on "New Service" (green box);
 
+![pics/SSPCloud1.png]
+
+- Choose Rstudio and click Launch;
+- Customize the configuration by changing three settings:
+   - In the "Friendly Name" field, choose a meaningful name (for instance "Intro_To_Linear_Regression");   
+   - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+   - In the "Network Access" tab, enable access to your service through port 5000.
+- Click on Save configuration;
+- Click on Launch;
+- Open the Rstudio service;
+- Develop your resources. Do not forget to commit and push regularly.
+
+
+
+## Python
 
 - Go the "My Services" Tab (red box);
 - Click on "New Service" (green box);
 
-  ![pics/SSPCloud1.png]
+![pics/SSPCloud1.png]
 
-- Choose Rstudio and click Launch, and Launch again;
-- Open the Rstudio service;
-- Clone the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`) using RStudio clone button.
+- Choose Vscode-r-python-julia and click Launch. We recommend using VSCode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
 
-  ![](https://book.cds101.com/img/clone_step_3.png)
-
-## Python
-
-When developing Quarto resources, it is easier to use VSCode than Jupyter. This does not mean that you are forcing your trainees to use VSCode, they will be able to open your output with Jupyter. 
-
-Open a service with this link: https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.18&s3=region-ec97c721&networking.user.enabled=true
-
-Fork repository to get your own editable template. 
-
-We assume you're cloning that repository
-
-```{.bash}
-git clone XXXXX
-```
-
-You can delete `resources/r.qmd`.
-Open and have a look to `resources/python.qmd` in your local repository. 
-
-:::
+- Open the Vscode service;
+- Navigate to the Git panel, click on "Clone" to clone the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`).
+- Develop your resources. Do not forget to commit and push regularly.
 
 
-Depending on the language you want to use, you can lighten the repository of unnecessary elements.
-
-::: {.panel-tabset}
-
-## R
-
-You can delete `resources/python.qmd`.
-
-Open, have a look to and update `resources/r.qmd` in your local repository.
-
-## Python
-
-You can delete `resources/r.qmd`.
-
-Open, have a look to and update `resources/python.qmd` in your local repository.
-
-:::
 
 Now assuming you want to give access to your resources as an html website, from command line you can preview your website using
 
