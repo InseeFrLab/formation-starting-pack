@@ -34,7 +34,7 @@ As explained in the [`SSPCloud` documentation](https://docs.sspcloud.fr/en/), it
 
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/img/environment_clean.png)
 
-# Quarto
+# Introducing Quarto
 
 `Quarto` is an open source program for creating Python and `R` tutorials. It makes it possible to mix seamlessly code and text in the same document and can handle many output formats, including html, pdf or notebook (.ipynb extension). `Quarto` is strongly recommended for the development of educational resources.
 
