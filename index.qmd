@@ -62,21 +62,21 @@ Here is a simple procedure to re-use a template:
       - Name: give the repository a meaningful name, for instance "Intro_To_Deep_Learning" or "Intro_To_Linear_Regression".
 - Dissociate the fork from the original template. To do so, go to the Github page of the new repository, click on Settings, scroll down to the Danger Zone and click on "Leave fork network".
 
-## Step 2: develop resources with `Quarto`
+## Step 2: develop resources with `Quarto` on the SSPCloud
 
 SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In otyher words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
 
-Here is a simple procedure to develop resources on the SSP-Cloud:
+Here is a simple procedure to start developing resources on the SSP-Cloud. The procedure is different and slightly longer if this is the first time you develop resources on this particular project (because you need to define a configuration).
 
 ::: {.panel-tabset}
 
 ## R
 
-- Go the "My Services" Tab (red box);
-- Click on "New Service" (green box);
+:::: {.panel-tabset}
 
-![pics/SSPCloud1.png]
+### First time
 
+- Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
 - Customize the configuration by changing three settings:
    - In the "Friendly Name" field, choose a meaningful name (for instance "Intro_To_Linear_Regression");   
@@ -85,24 +85,44 @@ Here is a simple procedure to develop resources on the SSP-Cloud:
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
-- Develop your resources. Do not forget to commit and push regularly.
+- Develop your resources. Do not forget to commit and push regularly!
 
+### Not the first time
+
+- Go the "My Services" Tab;
+- On the right side of the screen, find the configuration of your project and click on Launch;
+- Develop your resources. Do not forget to commit and push regularly!
+
+::::
+
+- Go the "My Services" Tab;
+- __On the first time you develop resources on this particular project:__
+   - Click on "New Service";
+   - Choose Rstudio and click Launch;
+   - Customize the configuration by changing three settings:
+      - In the "Friendly Name" field, choose a meaningful name (for instance "dev_Intro_To_Linear_Regression");   
+      - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+      - In the "Network Access" tab, enable access to your service through port 5000.
+   - Click on Save configuration;
+- Click on Launch;
+- Open the Rstudio service;
+- Develop your resources. Do not forget to commit and push regularly!
 
 
 ## Python
 
-- Go the "My Services" Tab (red box);
-- Click on "New Service" (green box);
-
-![pics/SSPCloud1.png]
-
-- Choose Vscode-r-python-julia and click Launch. We recommend using VSCode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
-
+- Go the "My Services" Tab and click on "New Service";
+- Choose Vscode-r-python-julia and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
+- Customize the configuration by changing three settings:
+   - In the "Friendly Name" field, choose a meaningful name (for instance "Intro_To_Linear_Regression");   
+   - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+   - In the "Network Access" tab, enable access to your service through port 5000.
 - Open the Vscode service;
-- Navigate to the Git panel, click on "Clone" to clone the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`).
-- Develop your resources. Do not forget to commit and push regularly.
+- Develop your resources. Do not forget to commit and push regularly!
 
+::: {.panel-tabset}
 
+## Step 3: develop resources with `Quarto` on the SSPCloud
 
 Now assuming you want to give access to your resources as an html website, from command line you can preview your website using
 
@@ -112,7 +132,6 @@ quarto preview --port 5000 --host 0.0.0.0
 
 Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you use and click on the section regarding external port opened [capture à faire].
 
-::: {.panel-tabset}
 ## R
 
 You can jump to next session
