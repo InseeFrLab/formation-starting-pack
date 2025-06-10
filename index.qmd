@@ -59,34 +59,33 @@ Here is a simple procedure to re-use a template:
 
 - Go to the Github page of the chosen template (`R` or Python);
 - Click on the ![https://upload.wikimedia.org/wikipedia/commons/3/38/GitHub_Fork_Button.png] button;
-- Choose __carefully__ the owner and the name of the new repository.
+- Choose __carefully__ the owner and the name of the new repository:
       - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
       - Name: give the repository a meaningful name, for instance "Intro_To_Deep_Learning" or "Intro_To_Linear_Regression".
 - Dissociate the fork from the original template. To do so, go to the Github page of the new repository, click on Settings, scroll down to the Danger Zone and click on "Leave fork network".
 
 ## Step 2: develop resources with `Quarto`
 
-SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. We strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
+SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In otyher words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
 
-Here is a simple procedure to re-use a template:
-
-
-:::: {.callout-tip collapse="true"}
-## Starting from a ready-to-use environment when developing resources
-
-SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. We strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
+Here is a simple procedure to develop resources on the SSP-Cloud:
 
 ::: {.panel-tabset}
 
 ## R
 
-The easiest way to do this is to start with an environment equivalent to that used for training: the SSPcloud. To do this, open a service with this link: https://datalab.sspcloud.fr/launcher/ide/rstudio?name=rstudio&version=2.1.13&s3=region-ec97c721&networking.user.enabled=true&autoLaunch=true
 
-Fork repository to get your own editable template. 
 
-We assume you're cloning that repository using RStudio clone button
+- Go the "My Services" Tab (red box);
+- Click on "New Service" (green box);
 
-![](https://book.cds101.com/img/clone_step_3.png)
+  ![pics/SSPCloud1.png]
+
+- Choose Rstudio and click Launch, and Launch again;
+- Open the Rstudio service;
+- Clone the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`) using RStudio clone button.
+
+  ![](https://book.cds101.com/img/clone_step_3.png)
 
 ## Python
 
@@ -106,8 +105,6 @@ You can delete `resources/r.qmd`.
 Open and have a look to `resources/python.qmd` in your local repository. 
 
 :::
-
-::::
 
 
 Depending on the language you want to use, you can lighten the repository of unnecessary elements.
