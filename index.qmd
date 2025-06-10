@@ -85,13 +85,17 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. The p
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
-- Develop your resources. Do not forget to commit and push regularly!
+- Rename the .Rproj file with a meaningful name (for instance `Intro_To_Linear_Regression.Rproj`);
+- Click on the Rproj file to open the RStudio project;
+- You're all set!!
 
 ### Not the first time
 
 - Go the "My Services" Tab;
 - On the right side of the screen, find the configuration of your project and click on Launch;
-- Develop your resources. Do not forget to commit and push regularly!
+- Open the Rstudio service;
+- Click on the Rproj file to open the RStudio project;
+- You're all set!!
 
 ::::
 
@@ -109,14 +113,14 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. The p
       - In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
-- Open the Rstudio service;
-- Develop your resources. Do not forget to commit and push regularly!
+- Open the Vscode service;
+- You're all set!!
 
 ### Not the first time
 
 - Go the "My Services" Tab;
 - On the right side of the screen, find the configuration of your project and click on Launch;
-- Develop your resources. Do not forget to commit and push regularly!
+- You're all set!!
 
 ::::
 
