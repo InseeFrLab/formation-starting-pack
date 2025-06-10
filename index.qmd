@@ -47,7 +47,7 @@ This tutorial assumes that educational resources and training material will be m
       - In Python, training material takes the form of a notebook. This is the standard delivery method for Python code.
       - In R, training material takes the form of an RStudio project (because notebooks are not frequently used in R). 
 
-# Developing educational resources
+# A step-by-step tutorial
 
 ## Step 1: create a Github repository from a template
 
@@ -79,9 +79,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. The p
 - Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
 - Customize the configuration by changing three settings:
-   - In the "Friendly Name" field, choose a meaningful name for the configuration (for instance `dev_Intro_To_Linear_Regression`);   
-   - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-   - In the "Network Access" tab, enable access to your service through port 5000.
+      - In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+      - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+      - In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -104,9 +104,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. The p
 - Go the "My Services" Tab and click on "New Service";
 - Choose Vscode-r-python-julia and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
 - Customize the configuration by changing three settings:
-   - In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
-   - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-   - In the "Network Access" tab, enable access to your service through port 5000.
+      - In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+      - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+      - In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -122,7 +122,42 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. The p
 
 ::: {.panel-tabset}
 
-## Step 3: set up a Github pages website
+
+## Step 3: develop resources
+
+- Committer souvent
+- Ajuster la structure
+- Gérer les dépendances
+- Visualiser le site.
+
+If your resources include a website, it is convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:
+
+```{.bash}
+quarto preview --port 5000 --host 0.0.0.0
+```
+
+Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you use and click on the section regarding external port opened [capture à faire].
+
+## R
+
+You can jump to next session
+
+## Python
+
+It makes more sense to provide your trainees with a jupyter notebook. To generate it, you can write
+
+```{.bash}
+quarto render --to ipynb
+```
+
+Notebooks will be written in the `_site` folder
+
+:::
+
+
+We'll now assume that you're satisfied with the resources you've built and want to make them available to your trainees.
+
+## Step 4: set up a Github pages website
 
 __This step is optional__, depending on whether your resources include a website. If your resources consist only in Jupyter notebooks, R scripts or Quarto documents with R chunks, you can skip this step.
 
@@ -155,40 +190,6 @@ Replace content of `.github/workflows/prod.yml` by content stored inside `resour
 Commit and push that new file. Look at the new pipeline that starts after every push on `main` branch. Once succeeded, you should have a publicly available website that has been deployed on a Github pages website. 
 
 
-
-## Step 4: develop resources
-
-- Committer souvent
-- Ajuster la structure
-- Gérer les dépendances
-- Visualiser le site.
-
-Now assuming you want to give access to your resources as an html website, from command line you can preview your website using
-
-```{.bash}
-quarto preview --port 5000 --host 0.0.0.0
-```
-
-Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you use and click on the section regarding external port opened [capture à faire].
-
-## R
-
-You can jump to next session
-
-## Python
-
-It makes more sense to provide your trainees with a jupyter notebook. To generate it, you can write
-
-```{.bash}
-quarto render --to ipynb
-```
-
-Notebooks will be written in the `_site` folder
-
-:::
-
-
-We'll now assume that you're satisfied with the resources you've built and want to make them available to your trainees.
 
 # Make your resources available on an online website
 
