@@ -151,6 +151,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#step-1-create-a-github-repository-from-a-template" id="toc-step-1-create-a-github-repository-from-a-template" class="nav-link" data-scroll-target="#step-1-create-a-github-repository-from-a-template">Step 1: create a Github repository from a template</a></li>
   <li><a href="#step-2-get-started-with-quarto-on-the-sspcloud" id="toc-step-2-get-started-with-quarto-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> on the SSPCloud</a></li>
+  <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources">Step 3: develop resources</a>
+  <ul class="collapse">
+  <li><a href="#developing-a-website" id="toc-developing-a-website" class="nav-link" data-scroll-target="#developing-a-website">Developing a website</a></li>
+  <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts">Developing interactive scripts</a></li>
+  <li><a href="#what-you-should-do-at-all-times" id="toc-what-you-should-do-at-all-times" class="nav-link" data-scroll-target="#what-you-should-do-at-all-times">What you should do at all times</a></li>
+  </ul></li>
+  <li><a href="#step-4-set-up-a-github-pages-website" id="toc-step-4-set-up-a-github-pages-website" class="nav-link" data-scroll-target="#step-4-set-up-a-github-pages-website">Step 4: set up a Github pages website</a>
+  <ul class="collapse">
+  <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch">Create the <code>gh-pages</code> branch</a></li>
+  <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow">Define a Github Actions workflow</a></li>
+  </ul></li>
+  <li><a href="#step-5-make-your-resources-available-on-an-online-website" id="toc-step-5-make-your-resources-available-on-an-online-website" class="nav-link" data-scroll-target="#step-5-make-your-resources-available-on-an-online-website">Step 5: make your resources available on an online website</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -225,18 +237,21 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 <p>Here is a simple procedure to re-use a template:</p>
 <ul>
 <li>Go to the Github page of the chosen template (<code>R</code> or Python);</li>
-<li>Click on the <img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" class="img-fluid"> button and on “Create a new repository”;</li>
+<li>Click on the “Use this template” button and then on “Create a new repository” (see screenshot);</li>
+</ul>
+<p><img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" style="max-width:400px;width:100%; text-align-last:center"></p>
+<ul>
 <li>Choose <strong>carefully</strong> the owner and the name of the new repository: - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the <code>AIML4OS</code> organization); - Name: give the repository a meaningful name, for instance “Intro_To_Deep_Learning” or “Intro_To_Linear_Regression”.</li>
 </ul>
 </section>
 <section id="step-2-get-started-with-quarto-on-the-sspcloud" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> on the SSPCloud</h2>
-<p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In otyher words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
-<p>Here is a simple procedure to start developing resources on the SSP-Cloud. The procedure is different and slightly longer if this is the first time you develop resources on this particular project (because you need to define a configuration).</p>
+<p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
+<p>Here is a simple procedure to start developing resources on the SSP-Cloud. <strong>The procedure is different and slightly longer if this is the first time</strong> you develop resources on this particular project (because you need to define a configuration).</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Step 4: set up a Github pages website</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-4" role="tab" aria-controls="tabset-6-4" aria-selected="false">Make a ready to use link to your resources</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Not the first time</a></li></ul>
 <div class="tab-content">
@@ -249,7 +264,7 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 <li>Click on Save configuration;</li>
 <li>Click on Launch;</li>
 <li>Open the Rstudio service;</li>
-<li>Rename the .Rproj file with a meaningful name (for instance <code>Intro_To_Linear_Regression.Rproj</code>);</li>
+<li>Rename the Rproj file with a meaningful name (for instance <code>Intro_To_Linear_Regression.Rproj</code>);</li>
 <li>Click on the Rproj file to open the RStudio project;</li>
 <li>You’re all set!</li>
 </ul>
@@ -266,14 +281,14 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 </div>
 </div>
 </div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Not the first time</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
-<li>Choose Vscode-r-python-julia and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;</li>
+<li>Choose <code>Vscode-r-python-julia</code> and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;</li>
 <li>Customize the configuration by changing three settings: - In the “Friendly Name” field, choose a meaningful name (for instance <code>dev_Intro_To_Linear_Regression</code>);<br>
 - In the “Repository” field of the “Git” tab, paste the URL of the repository you created in step 1 (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression</code>); - In the “Network Access” tab, enable access to your service through port 5000.</li>
 <li>Click on Save configuration;</li>
@@ -291,33 +306,56 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 </div>
 </div>
 </div>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Step 3: develop resources</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<ul>
-<li>Committer souvent</li>
-<li>Ajuster la structure</li>
-<li>Gérer les dépendances</li>
-<li>Visualiser le site.</li>
-</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-develop-resources" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-develop-resources">Step 3: develop resources</h2>
+<section id="developing-a-website" class="level3">
+<h3 class="anchored" data-anchor-id="developing-a-website">Developing a website</h3>
+<p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
 <p>If your resources include a website, it is convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--port</span> 5000 <span class="at">--host</span> 0.0.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you use and click on the section regarding external port opened [capture à faire].</p>
+<p>Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you are using and click on the link to the external port.</p>
+<div id="fig-port5000" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-port5000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<img src="pics/SSPCloud2.png" class="img-fluid figure-img">
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>You can jump to next session</p>
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-port5000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="developing-interactive-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="developing-interactive-scripts">Developing interactive scripts</h3>
+<p>A compléter sur Quarto/R et Notebooks Python.</p>
+<section id="r-1" class="level4">
+<h4 class="anchored" data-anchor-id="r-1">R</h4>
+<p>A compléter sur Quarto/R</p>
+</section>
+<section id="python-1" class="level4">
+<h4 class="anchored" data-anchor-id="python-1">Python</h4>
+<p>A compléter sur Notebooks Python.</p>
 <p>It makes more sense to provide your trainees with a jupyter notebook. To generate it, you can write</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--to</span> ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notebooks will be written in the <code>_site</code> folder</p>
-</div>
-</div>
-</div>
-<p>We’ll now assume that you’re satisfied with the resources you’ve built and want to make them available to your trainees.</p>
-</div>
-<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
+</section>
+</section>
+<section id="what-you-should-do-at-all-times" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-should-do-at-all-times">What you should do at all times</h3>
+<p><strong>It is essential that you commit and push your changes on a regular basis</strong> (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.</p>
+<p><strong>Gérer les dépendances: à compléter par Lino</strong></p>
+</section>
+</section>
+<section id="step-4-set-up-a-github-pages-website" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-set-up-a-github-pages-website">Step 4: set up a Github pages website</h2>
 <p><strong>This step is optional</strong>, depending on whether your resources include a website. If your resources consist only in Jupyter notebooks, R scripts or Quarto documents with R chunks, you can skip this step.</p>
 <section id="create-the-gh-pages-branch" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-gh-pages-branch">Create the <code>gh-pages</code> branch</h3>
@@ -329,46 +367,30 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 </section>
 <section id="define-a-github-actions-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="define-a-github-actions-workflow">Define a Github Actions workflow</h3>
-<p>We need to define a GHA workflow to automate output construction and deployment. This is done using specific yaml scripts, located in the <code>.github/workflows</code> directory of your repository.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p>Replace content of <code>.github/workflows/prod.yml</code> by content stored inside <code>resources/workflows/r.yaml</code></p>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<p>Replace content of <code>.github/workflows/prod.yml</code> by content stored inside <code>resources/workflows/python.yaml</code></p>
-</div>
-</div>
-</div>
-<p>Commit and push that new file. Look at the new pipeline that starts after every push on <code>main</code> branch. Once succeeded, you should have a publicly available website that has been deployed on a Github pages website.</p>
+<p>You need to define a GHA workflow to automate output construction and deployment. A GHA workflow is just a list of instructions (for instance: install <code>R</code>, install packages…) that are executed automatically every time (for instance every time you push on the master branch). A GHA workflow is done using specific yaml scripts, located in the <code>.github/workflows</code> directory of your repository. The templates already contains standard workflows that you can use as a starting point.</p>
+<p>You can monitor Github Actions jobs in the “Actions” tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.</p>
 </section>
-<section id="make-your-resources-available-on-an-online-website" class="level1">
-<h1>Make your resources available on an online website</h1>
 </section>
-</div>
-<div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
-<p>Let’s assume now you want trainees to avoid copy-pasting code from your program to their sandbox environment. SSPCloud proposes a feature that enables to launch a ready to use sandbox with one click. This enables to start an environment that can be overloaded by some parameters that would make trainees ready to start their learning experience.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<section id="step-5-make-your-resources-available-on-an-online-website" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-make-your-resources-available-on-an-online-website">Step 5: make your resources available on an online website</h2>
+<!-- ## Make a ready to use link to your resources
 
-</div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+Let's assume now you want trainees to avoid copy-pasting code from your program to their sandbox environment. SSPCloud proposes a feature that enables to launch a ready to use sandbox with one click. This enables to start an environment that can be overloaded by some parameters that would make trainees ready to start their learning experience. 
 
-</div>
-</div>
-</div>
-<section id="list-your-resources-on-the-training-portal" class="level1">
-<h1>List your resources on the training portal</h1>
-<p>TO DO</p>
+::: {.panel-tabset}
+## R
 
 
-</section>
-</div>
-</div>
-</div>
+
+## Python
+
+:::
+
+# List your resources on the training portal
+
+TO DO -->
+
+
 </section>
 </section>
 
