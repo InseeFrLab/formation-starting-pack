@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Creating and disseminating educational resources for SSPCloud users",
     "section": "",
-    "text": "This tutorial aims to be a practical guide for people developing educational resources in  or Python  and wishing to disseminate them easily through the SSPCloud.\nTo make this possible, a few technical prerequisites are needed - these are outlined in @importantreq.\nThe aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources."
+    "text": "This tutorial aims to be a practical guide for people developing educational resources in  or Python  and wishing to disseminate them easily through the SSPCloud.\nTo make this possible, a few technical prerequisites are needed - these are outlined in Important 1.\nThe aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources."
   },
   {
     "objectID": "index.html#which-interactive-environment-should-you-use",
