@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
@@ -190,7 +190,11 @@ window.Quarto = {
   <li><a href="#what-are-templates-and-why-use-them" id="toc-what-are-templates-and-why-use-them" class="nav-link" data-scroll-target="#what-are-templates-and-why-use-them"><span class="header-section-number">3.1.1</span> What are templates and why use them?</a></li>
   <li><a href="#how-to-use-a-template" id="toc-how-to-use-a-template" class="nav-link" data-scroll-target="#how-to-use-a-template"><span class="header-section-number">3.1.2</span> How to use a template?</a></li>
   </ul></li>
-  <li><a href="#step-2-define-your-development-configuration-on-the-sspcloud" id="toc-step-2-define-your-development-configuration-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</a></li>
+  <li><a href="#step-2-define-your-development-configuration-on-the-sspcloud" id="toc-step-2-define-your-development-configuration-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</a>
+  <ul class="collapse">
+  <li><a href="#how-to-define-a-configuration" id="toc-how-to-define-a-configuration" class="nav-link" data-scroll-target="#how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</a></li>
+  <li><a href="#how-to-use-a-configuration" id="toc-how-to-use-a-configuration" class="nav-link" data-scroll-target="#how-to-use-a-configuration"><span class="header-section-number">3.2.2</span> How to use a configuration</a></li>
+  </ul></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</a>
   <ul class="collapse">
   <li><a href="#developing-a-website" id="toc-developing-a-website" class="nav-link" data-scroll-target="#developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</a></li>
@@ -366,7 +370,7 @@ Why <code>learnr</code> Is Not Recommended
 <li><i class="fa-brands fa-r-project" aria-label="r-project"></i>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-r">template</a></li>
 <li><i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-python">template</a>.</li>
 </ul>
-<p>These templates contain all elements needed to produce resources that can be easily made available as websites or as training material on the SSP Cloud. More precisely, these templates contain:</p>
+<p>These templates contain all what you need to produce resources that can be easily made available as websites or as training material on the SSP Cloud. More precisely, these templates contain:</p>
 <ul>
 <li>a minimal Quarto website with graphical elements reflecting AIML4OS aesthetic;</li>
 <li>a minimal example of a Quarto document producing a Jupyter Notebook (<i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code> only);</li>
@@ -416,13 +420,12 @@ If you are not AIML4OS member and follow this guide anyway
 <h2 data-number="3.2" class="anchored" data-anchor-id="step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</h2>
 <!-- get started with `Quarto`   -->
 <p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
-<p>Here is a simple procedure to start developing resources on the SSP-Cloud. <strong>The procedure is different and slightly longer if this is the first time</strong> you develop resources on this particular project (because you need to define a configuration).</p>
+<section id="how-to-define-a-configuration" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</h3>
+<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. If you do so, you can come back to the SSP Cloud any time and resume developing your resources in only one click. Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.</p>
+<p>Here is how to define a development configuration the SSP-Cloud.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Not the first time</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
@@ -445,22 +448,6 @@ If you are not AIML4OS member and follow this guide anyway
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <ul>
-<li>Go the “My Services” Tab;</li>
-<li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
-<li>Open the Rstudio service;</li>
-<li>Click on the Rproj file to open the RStudio project;</li>
-<li>You’re all set!</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Not the first time</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
 <li>Choose <code>Vscode-r-python-julia</code> and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;</li>
 <li>Customize the configuration by changing three settings:
@@ -476,21 +463,39 @@ If you are not AIML4OS member and follow this guide anyway
 <li>You’re all set!</li>
 </ul>
 </div>
+</div>
+</div>
+</section>
+<section id="how-to-use-a-configuration" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-use-a-configuration"><span class="header-section-number">3.2.2</span> How to use a configuration</h3>
+<p>Once a configuration is defined, using it is very easy and very fast:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li>Go the “My Services” Tab;</li>
+<li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
+<li>Open the Rstudio service;</li>
+<li>Click on the Rproj file to open the RStudio project;</li>
+<li>You’re all set!</li>
+</ul>
+</div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <ul>
 <li>Go the “My Services” Tab;</li>
 <li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
+<li>Open the VSCode service;</li>
 <li>You’re all set!</li>
 </ul>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
 </section>
 <section id="step-3-develop-resources" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</h2>
+<p>If you have created a repository from a template and defined a development configuration, developing resources basically amounts to modifying the minimal examples available in your repositoryy.</p>
 <section id="developing-a-website" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
@@ -519,8 +524,8 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 <h4 data-number="3.3.2.1" class="anchored" data-anchor-id="r"><span class="header-section-number">3.3.2.1</span> R</h4>
 <p>A compléter sur Quarto/R</p>
 </section>
-<section id="python-2" class="level4" data-number="3.3.2.2">
-<h4 data-number="3.3.2.2" class="anchored" data-anchor-id="python-2"><span class="header-section-number">3.3.2.2</span> Python</h4>
+<section id="python-3" class="level4" data-number="3.3.2.2">
+<h4 data-number="3.3.2.2" class="anchored" data-anchor-id="python-3"><span class="header-section-number">3.3.2.2</span> Python</h4>
 <p>A compléter sur Notebooks Python.</p>
 <p>It makes more sense to provide your learners with a jupyter notebook. To generate it, you can write</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--to</span> ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
