@@ -29,7 +29,7 @@ the automated report and website builder inherited from `R Markdown`.
 Sharing educational resources on SSPCloud offers several advantages, particularly for educators and learners working with computational tools like R or Python. Here are the key benefits:
 
 1. **Instant access via a simple link**
-SSPCloud allows users to launch pre-configured workspaces through a simple HTTPS link. This eliminates the need for any local installation or complex setup—learners can start working immediately, directly in their browser.
+SSPCloud allows users to launch pre-configured workspaces through a simple HTTPS link. Doing so, there is no need for any local installation or complex setup: learners can start working immediately, directly in their browser.
 
 2. **Standardized and reproducible environments**
 Everyone accesses the same cloud-based environment, including all necessary packages, tools, and datasets. This ensures full consistency across learners, removing issues related to differing operating systems, versions, or missing dependencies.
@@ -38,7 +38,7 @@ Everyone accesses the same cloud-based environment, including all necessary pack
 SSPCloud offers access to robust computational resources that can scale with your needs. From beginner tutorials in Python or R to advanced workflows involving large datasets or machine learning models, the platform can support a wide range of educational use cases.
 
 
-As outlined in the SSPCloud documentation, it’s important to understand that the platform separates code (Git), data (S3), and environment configuration. These components are dynamically combined when launching a compute session.
+As outlined in the SSPCloud documentation, it's important to understand that the platform separates code (Git), data (S3), and environment configuration. These components are dynamically combined when launching a compute session.
 
 For training designers, this architecture ensures high reproducibility and fine-grained control over the environment. For users, it eliminates the need to install software, manage system permissions, or configure their local machine—making it easy to jump straight into the tutorial.
 
@@ -47,9 +47,9 @@ For training designers, this architecture ensures high reproducibility and fine-
 
 # Which materials should be used for trainings?
 
-When designing effective training materials, it’s essential to choose formats that actively engage learners and support comprehension. While PDFs, slide decks, and videos are all valuable for delivering content, this guide focuses on interactive environments, which are particularly well-suited for hands-on learning. These environments enable learners to apply concepts immediately, test code in real time, and actively engage with the material—leading to deeper understanding and better long-term retention.
+When designing effective training materials, it's essential to choose formats that actively engage learners and support comprehension. While PDFs, slide decks, and videos are all valuable for delivering content, this guide focuses on interactive environments, which are particularly well-suited for hands-on learning. These environments enable learners to apply concepts immediately, test code in real time, and actively engage with the material—leading to deeper understanding and better long-term retention.
 
-In the sections that follow, we’ll begin by comparing various interactive environments based on the programming language they support. Then, we’ll walk through how to build and structure them using Quarto.
+In the sections that follow, we'll begin by comparing various interactive environments based on the programming language they support. Then, we'll walk through how to build and structure them using Quarto.
 
 
 ## Which interactive environment should you use ? 
@@ -77,14 +77,14 @@ In {{< fa brands r-project >}}, notebooks are not commonly used - even though th
 When designing {{< fa brands r-project >}}-based training materials, two main options are available, each with its own pros and cons:
 
 1. **Providing access to an HTML website**
-      + Advantages: Solutions can be hidden, interactive widgets can be used to offer hints or guide learners step by step, and the layout is optimized for reading.
+      + Advantages: Solutions to exercices can be hidden, interactive widgets can be used to offer hints or guide learners step by step, and the layout is optimized for reading.
       + Drawbacks: This is not an interactive environment—learners must open a separate RStudio session to try out the code, which can disrupt the flow of learning.
 
 2. **Providing access to a Quarto Markdown (.qmd) file**
       + Advantages: Fully interactive—learners can run code directly within the environment, benefiting from live feedback and hands-on practice.
       + Drawbacks: All answers and code are visible by default, which may reduce engagement and exploratory effort from the learners.
 
-Since the first option can become cumbersome - especially when learners need to copy and paste large blocks of code - it is generally recommended to use the second option in most cases. Providing direct access to a Quarto Markdown file helps minimize the risk of hard-to-reproduce errors that often arise when trainees switch between an HTML tutorial and their R session.
+Since the first option can become cumbersome - especially when learners need to copy and paste large blocks of code - it is generally recommended to use the second option in most cases. Providing direct access to a Quarto Markdown file helps minimize the risk of hard-to-reproduce errors that often arise when learners switch between an HTML tutorial and their R session.
 
 ![Exemple with RStudio](/pics/rstudio.png)
 
@@ -119,8 +119,20 @@ This tutorial assumes that educational resources and training material will be m
 
 ## Step 1: create a `Github` {{< fa brands github >}} repository from a template
 
-The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. These templates contain all elements needed to produce resources that can be easily made available as websites or as 
-training material on the SSP Cloud.
+### What are templates and why use them?
+
+The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. There are two different templates, depending on the language you want to use:
+
+* {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
+* {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
+
+These templates contain all elements needed to produce resources that can be easily made available as websites or as  training material on the SSP Cloud. More precisely, these templates contain:
+
+- a minimal Quarto website with graphical elements reflecting AIML4OS aesthetic;
+- a minimal example of a Quarto document producing a Jupyter Notebook ({{< fa brands python >}} `Python` only);
+- a minimal example of a Quarto document mixing Markdown text and `R` code ({{< fa brands r-project >}} only);
+- what is needed to manage dependencies (what packages are needed to run the codes, and in which version);
+- scripts for Github Actions workflow for automated deployment (don't be afraid, see below!).
 
 ::: {.callout-note collapse="false"}
 ## If you are not AIML4OS member and follow this guide anyway
@@ -129,10 +141,7 @@ You can still use the templates - just remove the style components using AIML4OS
 
 :::
 
-Depending on the language you want to use, there are two different templates:
-
-* {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
-* {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
+### How to use a template?
 
 Here is what to do to re-use a template:
 
@@ -246,7 +255,7 @@ A compléter sur Quarto/R
 
 A compléter sur Notebooks Python.
 
-It makes more sense to provide your trainees with a jupyter notebook. To generate it, you can write
+It makes more sense to provide your learners with a jupyter notebook. To generate it, you can write
 
 ```{.bash}
 quarto render --to ipynb
@@ -290,7 +299,7 @@ A compléter avec Inès
 
 <!-- ## Make a ready to use link to your resources
 
-Let's assume now you want trainees to avoid copy-pasting code from your program to their sandbox environment. SSPCloud proposes a feature that enables to launch a ready to use sandbox with one click. This enables to start an environment that can be overloaded by some parameters that would make trainees ready to start their learning experience. 
+Let's assume now you want learners to avoid copy-pasting code from your program to their sandbox environment. SSPCloud proposes a feature that enables to launch a ready to use sandbox with one click. This enables to start an environment that can be overloaded by some parameters that would make learners ready to start their learning experience. 
 
 ::: {.panel-tabset}
 ## R
