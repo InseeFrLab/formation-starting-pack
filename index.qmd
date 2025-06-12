@@ -1,70 +1,151 @@
 ---
-title: "Creating and disseminating educational resources for SSPCloud users"
+title: "Creating and disseminating educational resources for `SSPCloud` users"
 subtitle: "Startup guide"
 author: "Lino Galiana and Olivier Meslin"
 ---
 
 
-This tutorial aims to be a practical guide for people developing educational resources in `R` or `Python` and wishing to disseminate them easily through the SSPCloud.
+This tutorial aims to be a practical guide for people developing educational resources in {{< fa brands r-project >}} or `Python` {{< fa brands python >}} and wishing to disseminate them easily through the `SSPCloud`.
 
-There are a few technical requirements:
+To make this possible, a few technical prerequisites are needed - these are outlined in @imp-req.
 
-- A minimum level of proficiency in Git is required to develop and make available online training resources. However, accessing to these resources on the SSPCloud does not require any familiarity with Git.
-- [`Quarto`](https://quarto.org/) the automated report and website builder inherited from `R Markdown`.
-- [`SSPCloud` documentation](https://docs.sspcloud.fr/en/), in particular the fundamental difference between making resources available for execution on a local computer or on a server like the SSPCloud. 
-- Some knowledge regarding deployment of resources using `Github Actions` is useful. This tutorial gives a few templates but understanding them is not in the scope of that tutorial. 
+The aim of this tutorial is to get you started quickly on building educational resources with a __state-of-the-art level of reproducibility__. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.
 
-The aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.
+
+::: {#imp-req .callout-important collapse="false"}
+## Technical requirements to deploy educational resources
+
+- A minimum level of proficiency in `Git` {{< fa brands git-alt >}} is required to develop and make available online training resources. However, accessing to these resources on the SSPCloud does not require any familiarity with Git.
+- [`Quarto`](https://quarto.org/) {{< iconify simple-icons:quarto style="color:#74aadb;" >}}
+the automated report and website builder inherited from `R Markdown`.
+- An understanding of the fundamental difference between making resources available for execution on a local computer or on a server like `SSPCloud`. See [`SSPCloud` documentation](https://docs.sspcloud.fr/en/). 
+- Some knowledge regarding deployment of resources using `Github Actions` {{< fa brands github >}} is useful. This tutorial gives a few templates but understanding what is happening behind the stage is not in the scope of that tutorial. 
+
+:::
+
 
 # Why share educational resources on SSPCloud?
 
 Sharing educational resources on SSPCloud offers several advantages, particularly for educators and learners working with computational tools like R or Python. Here are the key benefits:
 
-1. **Access to Computational Resources**  
-   By hosting educational resources on SSPCloud, users can leverage powerful computational resources provided by the platform. This is especially valuable for running intensive data analyses, simulations, or machine learning models without requiring high-performance local machines.
+1. **Instant access via a simple link**
+SSPCloud allows users to launch pre-configured workspaces through a simple HTTPS link. This eliminates the need for any local installation or complex setup—learners can start working immediately, directly in their browser.
 
-2. **Access to a Standardized Environment**  
-   SSPCloud provides a pre-configured and standardized environment with the necessary packages, libraries, and system dependencies. This minimizes the common issues of version mismatches and missing dependencies, ensuring that all users have a consistent setup to work from, regardless of their local configuration.
+2. **Standardized and reproducible environments**
+Everyone accesses the same cloud-based environment, including all necessary packages, tools, and datasets. This ensures full consistency across learners, removing issues related to differing operating systems, versions, or missing dependencies.
 
-3. **Simple Launch via an HTTPS Link**  
-   Resources on SSPCloud can be accessed and launched with a simple HTTPS link. This eliminates the complexity of manual setup or configuration, enabling users to start working with the resources almost instantly, directly in their browser.
+3. **Scalable computing power**
+SSPCloud offers access to robust computational resources that can scale with your needs. From beginner tutorials in Python or R to advanced workflows involving large datasets or machine learning models, the platform can support a wide range of educational use cases.
 
 
-As explained in the [`SSPCloud` documentation](https://docs.sspcloud.fr/en/), it's important to understand that with this platform, code (`Git`), data (`S3`) and configuration are stored separately, while the compute space brings these three elements together. For training designers, this makes resources highly reproducible, with full control over the environment. For the users of these resources, it means that they no longer have to install software, play with their machine's rights, etc., before they can get started on the tutorial.
+As outlined in the SSPCloud documentation, it’s important to understand that the platform separates code (Git), data (S3), and environment configuration. These components are dynamically combined when launching a compute session.
 
-![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/img/environment_clean.png)
+For training designers, this architecture ensures high reproducibility and fine-grained control over the environment. For users, it eliminates the need to install software, manage system permissions, or configure their local machine—making it easy to jump straight into the tutorial.
 
-# Introducing Quarto
 
-`Quarto` is an open source program for creating Python and `R` tutorials. It makes it possible to mix seamlessly code and text in the same document and can handle many output formats, including html, pdf or notebook (.ipynb extension). `Quarto` is strongly recommended for the development of educational resources.
+![An illustration of the SSPCloud functioning](/pics/starting_pack_objective.png)
+
+# Which materials should be used for trainings?
+
+When designing effective training materials, it’s essential to choose formats that actively engage learners and support comprehension. While PDFs, slide decks, and videos are all valuable for delivering content, this guide focuses on interactive environments, which are particularly well-suited for hands-on learning. These environments enable learners to apply concepts immediately, test code in real time, and actively engage with the material—leading to deeper understanding and better long-term retention.
+
+In the sections that follow, we’ll begin by comparing various interactive environments based on the programming language they support. Then, we’ll walk through how to build and structure them using Quarto.
+
+
+## Which interactive environment should you use ? 
+
+:::: {.panel-tabset}
+## `Python` {{< fa brands python >}}
+
+`Jupyter` notebooks[^jupyter] offer an interactive interface that allows you to write `Python` code, test it, and see the result below the instruction rather than in a separate console. `Jupyter` notebooks are essential in the fields of data science and education and research because they greatly simplify exploration and experimentation.
+
+They allow you to combine text in `Markdown` format (a lighter markup text format than `HTML` or $\LaTeX$), `Python` code, and `HTML` code for visualizations and animations in a single document.
+
+[^jupyter]: `Jupyter` originated from the `IPython` project, an interactive environment for `Python` developed by Fernando Pérez in 2001. In 2014, the project evolved to support other programming languages in addition to Python, leading to the creation of the Jupyter project. The name "Jupyter" is an acronym referring to the three main languages it supports: `Julia`, `Python`, and `R`. `Jupyter` notebooks are crucial in the fields of data science and education and research because they greatly simplify exploration and experimentation.
+
+Initially, `Jupyter` {{< iconify vscode-icons:file-type-jupyter >}} was the only software offering these interactive features. Now, there are other ways to benefit from notebook advantages while having an IDE with more comprehensive features than `Jupyter`. For this reason, as of 2024, it is more practical to use `VSCode` {{< iconify vscode-icons:file-type-vscode >}}, a general-purpose code editor but offering excellent features in `Python`, than `Jupyter`. For more information on using notebooks in VSCode, refer to the [official documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+
+![Example with `Jupyter` {{< iconify vscode-icons:file-type-jupyter >}}](/pics/jupyter.png)
+
+![Example with `VSCode` {{< iconify vscode-icons:file-type-vscode >}}](/pics/vscode.png)
+
+
+## {{< fa brands r-project >}}
+
+In {{< fa brands r-project >}}, notebooks are not commonly used - even though they offer several features that are particularly valuable for educational purposes.
+
+When designing {{< fa brands r-project >}}-based training materials, two main options are available, each with its own pros and cons:
+
+1. **Providing access to an HTML website**
+      + Advantages: Solutions can be hidden, interactive widgets can be used to offer hints or guide learners step by step, and the layout is optimized for reading.
+      + Drawbacks: This is not an interactive environment—learners must open a separate RStudio session to try out the code, which can disrupt the flow of learning.
+
+2. **Providing access to a Quarto Markdown (.qmd) file**
+      + Advantages: Fully interactive—learners can run code directly within the environment, benefiting from live feedback and hands-on practice.
+      + Drawbacks: All answers and code are visible by default, which may reduce engagement and exploratory effort from the learners.
+
+Since the first option can become cumbersome - especially when learners need to copy and paste large blocks of code - it is generally recommended to use the second option in most cases. Providing direct access to a Quarto Markdown file helps minimize the risk of hard-to-reproduce errors that often arise when trainees switch between an HTML tutorial and their R session.
+
+![Exemple with RStudio](/pics/rstudio.png)
+
+::: {.callout-caution}
+## Why `learnr` Is Not Recommended
+
+While `learnr` allows for the creation of interactive and advanced elements such as quizzes—making it well-suited for beginner tutorials—it has some important limitations.
+
+First, it requires deployment on a Shiny server, which can be costly and complex to maintain. Additionally, in `learnr`, code cells do not share a global environment. This means variables and objects created in one chunk are not accessible in others, making it difficult to manage state or build on previous steps.
+
+These restrictions limit the usefulness of `learnr` for more complex tutorials, where maintaining continuity and evolving context across the tutorial is essential.
+
+:::
+
+:::: 
+
+
+## Introducing `Quarto`  {{< iconify simple-icons:quarto style="color:#74aadb;" >}} to create training resources
+
+`Quarto` is an open source program for creating `Python` {{< fa brands python >}} and {{< fa brands r-project >}} reproducible tutorials. 
+It makes it possible to mix seamlessly code and text in the same document and can handle many output formats, including html, pdf or notebook (.ipynb extension). `Quarto` is strongly recommended for the development of educational resources.
 
 ![](pics/quarto.png)
 
 This tutorial assumes that educational resources and training material will be made available in two forms:
 
-- Quarto websites, mixing text and code chunks;
-- Interactive scripts:
-      - In Python, training material takes the form of a notebook. This is the standard delivery method for Python code.
-      - In R, training material takes the form of an RStudio project (because notebooks are not frequently used in R). 
+- `Quarto` websites, mixing text and code chunks;
+- Interactive environment (see ☝️)
+
 
 # A step-by-step tutorial
 
-## Step 1: create a Github repository from a template
+## Step 1: create a `Github` {{< fa brands github >}} repository from a template
 
-The very first step towards developing educational resources consists in creating a Github repository that will contain them all. We recommend that you use templates developed specifically for the AIML4OS project. Depending on the language you want to use, there is a [template for `R`](https://github.com/InseeFrLab/AIML4OS-template-quarto-r) and a [template for Python](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
+The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use templates developed specifically for the AIML4OS project
+
+::: {.callout-note collapse="false"}
+## If you are not AIML4OS member and follow this guide
+
+You can still use the template - just remove the style components that use AIML4OS aesthetic. 
+
+:::
+
+Depending on the language you want to use, there are different templates:
+
+* {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
+* {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
 
 Here is a simple procedure to re-use a template:
 
-- Go to the Github page of the chosen template (`R` or Python);
-- Click on the "Use this template" button and then on "Create a new repository" (see screenshot);
+- Go to the `Github` {{< fa brands github >}} page of the chosen template;
+- Click on the _"Use this template"_ button and then on _"Create a new repository"_ (see screenshot);
 
-<img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" style="max-width:400px;width:100%; text-align-last:center">
+![](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp){width=50% fig-align="center"}
 
-- Choose __carefully__ the owner and the name of the new repository:
-      - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
-      - Name: give the repository a meaningful name, for instance "Intro_To_Deep_Learning" or "Intro_To_Linear_Regression".
 
-## Step 2: get started with `Quarto` on the SSPCloud
+- Choose carefully the owner and the name of the new repository:
+  - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
+  - Name: give the repository a meaningful name, for instance _"Intro_To_Deep_Learning"_ or _"Intro_To_Linear_Regression"_.
+
+## Step 2: get started with `Quarto`  {{< iconify simple-icons:quarto style="color:#74aadb;" >}} on the SSPCloud
 
 SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
 
@@ -72,7 +153,7 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 
 ::: {.panel-tabset}
 
-## R
+## {{< fa brands r-project >}}
 
 :::: {.panel-tabset}
 
@@ -101,7 +182,7 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 
 ::::
 
-## Python
+## `Python` {{< fa brands python >}}
 
 :::: {.panel-tabset}
 
@@ -141,7 +222,7 @@ If your resources include a website, it is convenient to have a look at what thi
 quarto preview --port 5000 --host 0.0.0.0
 ```
 
-Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you are using and click on the link to the external port.
+Then go to [https://datalab.sspcloud.fr/my-services](https://datalab.sspcloud.fr/my-services), open the README of the service you are using and click on the link to the external port.
 
 ::: {#fig-port5000 layout-ncol=2}
 

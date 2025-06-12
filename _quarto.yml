@@ -2,8 +2,6 @@ project:
   type: website
   render:
     - index.qmd
-    # - resources/python.qmd
-    # - resources/r.qmd
 
 website:
   title: "Training startup"
@@ -17,5 +15,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    number-sections: true
 
 author: "Lino Galiana"
