@@ -126,7 +126,7 @@ The very first step towards developing educational resources consists in creatin
 * {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
 * {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
 
-These templates contain all elements needed to produce resources that can be easily made available as websites or as  training material on the SSP Cloud. More precisely, these templates contain:
+These templates contain all what you need to produce resources that can be easily made available as websites or as  training material on the SSP Cloud. More precisely, these templates contain:
 
 - a minimal Quarto website with graphical elements reflecting AIML4OS aesthetic;
 - a minimal example of a Quarto document producing a Jupyter Notebook ({{< fa brands python >}} `Python` only);
@@ -161,15 +161,15 @@ Here is what to do to re-use a template:
 
 SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
 
-Here is a simple procedure to start developing resources on the SSP-Cloud. __The procedure is different and slightly longer if this is the first time__ you develop resources on this particular project (because you need to define a configuration).
+### How to define a configuration
+
+The best way to develop resources on the SSP Cloud is to define your own development configuration. If you do so, you can come back to the SSP Cloud any time and resume developing your resources in only one click. Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.
+
+Here is how to define a development configuration the SSP-Cloud.
 
 ::: {.panel-tabset}
 
 ## {{< fa brands r-project >}}
-
-:::: {.panel-tabset}
-
-### First time
 
 - Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
@@ -184,21 +184,7 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Click on the Rproj file to open the RStudio project;
 - You're all set!
 
-### Not the first time
-
-- Go the "My Services" Tab;
-- On the right side of the screen, find the configuration of your project and click on Launch;
-- Open the Rstudio service;
-- Click on the Rproj file to open the RStudio project;
-- You're all set!
-
-::::
-
 ## `Python` {{< fa brands python >}}
-
-:::: {.panel-tabset}
-
-### First time
 
 - Go the "My Services" Tab and click on "New Service";
 - Choose `Vscode-r-python-julia` and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
@@ -211,18 +197,34 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Open the Vscode service;
 - You're all set!
 
-### Not the first time
+:::
+
+### How to use a configuration
+
+Once a configuration is defined, using it is very easy and very fast:
+
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
 
 - Go the "My Services" Tab;
 - On the right side of the screen, find the configuration of your project and click on Launch;
+- Open the Rstudio service;
+- Click on the Rproj file to open the RStudio project;
 - You're all set!
 
-::::
+## `Python` {{< fa brands python >}}
+
+- Go the "My Services" Tab;
+- On the right side of the screen, find the configuration of your project and click on Launch;
+- Open the VSCode service;
+- You're all set!
 
 :::
 
-
 ## Step 3: develop resources
+
+If you have created a repository from a template and defined a development configuration, developing resources basically amounts to modifying the minimal examples available in your repositoryy.
 
 ### Developing a website
 
