@@ -2,8 +2,6 @@ project:
   type: website
   render:
     - index.qmd
-    # - resources/python.qmd
-    # - resources/r.qmd
 
 website:
   title: "Training startup"
