@@ -119,21 +119,22 @@ This tutorial assumes that educational resources and training material will be m
 
 ## Step 1: create a `Github` {{< fa brands github >}} repository from a template
 
-The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use templates developed specifically for the AIML4OS project
+The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. These templates contain all elements needed to produce resources that can be easily made available as websites or as 
+training material on the SSP Cloud.
 
 ::: {.callout-note collapse="false"}
-## If you are not AIML4OS member and follow this guide
+## If you are not AIML4OS member and follow this guide anyway
 
-You can still use the template - just remove the style components that use AIML4OS aesthetic. 
+You can still use the templates - just remove the style components using AIML4OS aesthetic. 
 
 :::
 
-Depending on the language you want to use, there are different templates:
+Depending on the language you want to use, there are two different templates:
 
 * {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
 * {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
 
-Here is a simple procedure to re-use a template:
+Here is what to do to re-use a template:
 
 - Go to the `Github` {{< fa brands github >}} page of the chosen template;
 - Click on the _"Use this template"_ button and then on _"Create a new repository"_ (see screenshot);
@@ -145,9 +146,11 @@ Here is a simple procedure to re-use a template:
   - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
   - Name: give the repository a meaningful name, for instance _"Intro_To_Deep_Learning"_ or _"Intro_To_Linear_Regression"_.
 
-## Step 2: get started with `Quarto`  {{< iconify simple-icons:quarto style="color:#74aadb;" >}} on the SSPCloud
+## Step 2: define your development configuration on the SSPCloud
 
-SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
+<!-- get started with `Quarto`  {{< iconify simple-icons:quarto style="color:#74aadb;" >}} -->
+
+SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
 
 Here is a simple procedure to start developing resources on the SSP-Cloud. __The procedure is different and slightly longer if this is the first time__ you develop resources on this particular project (because you need to define a configuration).
 
@@ -162,9 +165,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
 - Customize the configuration by changing three settings:
-      + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
-      + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-      + In the "Network Access" tab, enable access to your service through port 5000.
+  + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+  + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+  + In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -191,9 +194,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Go the "My Services" Tab and click on "New Service";
 - Choose `Vscode-r-python-julia` and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
 - Customize the configuration by changing three settings:
-      + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
-      + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-      + In the "Network Access" tab, enable access to your service through port 5000.
+  + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+  + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+  + In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Vscode service;
@@ -282,6 +285,8 @@ A few important remarks on automated deployment:
 - You can monitor Github Actions jobs in the "Actions" tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.
 
 ## Step 5: make your resources available on an online website
+
+A compléter avec Inès
 
 <!-- ## Make a ready to use link to your resources
 
