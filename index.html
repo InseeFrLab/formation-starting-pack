@@ -76,6 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,6 +107,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -146,11 +178,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#why-share-educational-resources-on-sspcloud" id="toc-why-share-educational-resources-on-sspcloud" class="nav-link active" data-scroll-target="#why-share-educational-resources-on-sspcloud">Why share educational resources on SSPCloud?</a></li>
-  <li><a href="#introducing-quarto" id="toc-introducing-quarto" class="nav-link" data-scroll-target="#introducing-quarto">Introducing Quarto</a></li>
+  <li><a href="#which-materials-should-be-used-for-trainings" id="toc-which-materials-should-be-used-for-trainings" class="nav-link" data-scroll-target="#which-materials-should-be-used-for-trainings">Which materials should be used for trainings?</a>
+  <ul class="collapse">
+  <li><a href="#which-interactive-environment-should-you-use" id="toc-which-interactive-environment-should-you-use" class="nav-link" data-scroll-target="#which-interactive-environment-should-you-use">Which interactive environment should you use ?</a></li>
+  <li><a href="#introducing-quarto-to-create-training-resources" id="toc-introducing-quarto-to-create-training-resources" class="nav-link" data-scroll-target="#introducing-quarto-to-create-training-resources">Introducing <code>Quarto</code> <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon> to create training resources</a></li>
+  </ul></li>
   <li><a href="#a-step-by-step-tutorial" id="toc-a-step-by-step-tutorial" class="nav-link" data-scroll-target="#a-step-by-step-tutorial">A step-by-step tutorial</a>
   <ul class="collapse">
-  <li><a href="#step-1-create-a-github-repository-from-a-template" id="toc-step-1-create-a-github-repository-from-a-template" class="nav-link" data-scroll-target="#step-1-create-a-github-repository-from-a-template">Step 1: create a Github repository from a template</a></li>
-  <li><a href="#step-2-get-started-with-quarto-on-the-sspcloud" id="toc-step-2-get-started-with-quarto-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> on the SSPCloud</a></li>
+  <li><a href="#step-1-create-a-github-repository-from-a-template" id="toc-step-1-create-a-github-repository-from-a-template" class="nav-link" data-scroll-target="#step-1-create-a-github-repository-from-a-template">Step 1: create a <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> repository from a template</a></li>
+  <li><a href="#step-2-get-started-with-quarto-on-the-sspcloud" id="toc-step-2-get-started-with-quarto-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon> on the SSPCloud</a></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources">Step 3: develop resources</a>
   <ul class="collapse">
   <li><a href="#developing-a-website" id="toc-developing-a-website" class="nav-link" data-scroll-target="#developing-a-website">Developing a website</a></li>
@@ -172,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Creating and disseminating educational resources for SSPCloud users</h1>
+<h1 class="title">Creating and disseminating educational resources for <code>SSPCloud</code> users</h1>
 <p class="subtitle lead">Startup guide</p>
 </div>
 
@@ -196,66 +232,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This tutorial aims to be a practical guide for people developing educational resources in <code>R</code> or <code>Python</code> and wishing to disseminate them easily through the SSPCloud.</p>
-<p>There are a few technical requirements:</p>
+<p>This tutorial aims to be a practical guide for people developing educational resources in <i class="fa-brands fa-r-project" aria-label="r-project"></i> or <code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i> and wishing to disseminate them easily through the <code>SSPCloud</code>.</p>
+<p>To make this possible, a few technical prerequisites are needed - these are outlined in <span class="citation" data-cites="importantreq">@importantreq</span>.</p>
+<p>The aim of this tutorial is to get you started quickly on building educational resources with a <strong>state-of-the-art level of reproducibility</strong>. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.</p>
+<div id="important-req" class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Technical requirements to deploy educational resources
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ul>
-<li>A minimum level of proficiency in Git is required to develop and make available online training resources. However, accessing to these resources on the SSPCloud does not require any familiarity with Git.</li>
-<li><a href="https://quarto.org/"><code>Quarto</code></a> the automated report and website builder inherited from <code>R Markdown</code>.</li>
-<li><a href="https://docs.sspcloud.fr/en/"><code>SSPCloud</code> documentation</a>, in particular the fundamental difference between making resources available for execution on a local computer or on a server like the SSPCloud.</li>
-<li>Some knowledge regarding deployment of resources using <code>Github Actions</code> is useful. This tutorial gives a few templates but understanding them is not in the scope of that tutorial.</li>
+<li>A minimum level of proficiency in <code>Git</code> <i class="fa-brands fa-git-alt" aria-label="git-alt"></i> is required to develop and make available online training resources. However, accessing to these resources on the SSPCloud does not require any familiarity with Git.</li>
+<li><a href="https://quarto.org/"><code>Quarto</code></a> <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon> the automated report and website builder inherited from <code>R Markdown</code>.</li>
+<li>An understanding of the fundamental difference between making resources available for execution on a local computer or on a server like <code>SSPCloud</code>. See <a href="https://docs.sspcloud.fr/en/"><code>SSPCloud</code> documentation</a>.</li>
+<li>Some knowledge regarding deployment of resources using <code>Github Actions</code> <i class="fa-brands fa-github" aria-label="github"></i> is useful. This tutorial gives a few templates but understanding what is happening behind the stage is not in the scope of that tutorial.</li>
 </ul>
-<p>The aim of this tutorial is to get you started quickly on building educational resources with a state-of-the-art level of reproducibility. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.</p>
+</div>
+</div>
+</div>
 <section id="why-share-educational-resources-on-sspcloud" class="level1">
 <h1>Why share educational resources on SSPCloud?</h1>
 <p>Sharing educational resources on SSPCloud offers several advantages, particularly for educators and learners working with computational tools like R or Python. Here are the key benefits:</p>
 <ol type="1">
-<li><p><strong>Access to Computational Resources</strong><br>
-By hosting educational resources on SSPCloud, users can leverage powerful computational resources provided by the platform. This is especially valuable for running intensive data analyses, simulations, or machine learning models without requiring high-performance local machines.</p></li>
-<li><p><strong>Access to a Standardized Environment</strong><br>
-SSPCloud provides a pre-configured and standardized environment with the necessary packages, libraries, and system dependencies. This minimizes the common issues of version mismatches and missing dependencies, ensuring that all users have a consistent setup to work from, regardless of their local configuration.</p></li>
-<li><p><strong>Simple Launch via an HTTPS Link</strong><br>
-Resources on SSPCloud can be accessed and launched with a simple HTTPS link. This eliminates the complexity of manual setup or configuration, enabling users to start working with the resources almost instantly, directly in their browser.</p></li>
+<li><p><strong>Instant access via a simple link</strong> SSPCloud allows users to launch pre-configured workspaces through a simple HTTPS link. This eliminates the need for any local installation or complex setup—learners can start working immediately, directly in their browser.</p></li>
+<li><p><strong>Standardized and reproducible environments</strong> Everyone accesses the same cloud-based environment, including all necessary packages, tools, and datasets. This ensures full consistency across learners, removing issues related to differing operating systems, versions, or missing dependencies.</p></li>
+<li><p><strong>Scalable computing power</strong> SSPCloud offers access to robust computational resources that can scale with your needs. From beginner tutorials in Python or R to advanced workflows involving large datasets or machine learning models, the platform can support a wide range of educational use cases.</p></li>
 </ol>
-<p>As explained in the <a href="https://docs.sspcloud.fr/en/"><code>SSPCloud</code> documentation</a>, it’s important to understand that with this platform, code (<code>Git</code>), data (<code>S3</code>) and configuration are stored separately, while the compute space brings these three elements together. For training designers, this makes resources highly reproducible, with full control over the environment. For the users of these resources, it means that they no longer have to install software, play with their machine’s rights, etc., before they can get started on the tutorial.</p>
-<p><img src="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/img/environment_clean.png" class="img-fluid"></p>
+<p>As outlined in the SSPCloud documentation, it’s important to understand that the platform separates code (Git), data (S3), and environment configuration. These components are dynamically combined when launching a compute session.</p>
+<p>For training designers, this architecture ensures high reproducibility and fine-grained control over the environment. For users, it eliminates the need to install software, manage system permissions, or configure their local machine—making it easy to jump straight into the tutorial.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./pics/starting_pack_objective.png" class="img-fluid figure-img"></p>
+<figcaption>An illustration of the SSPCloud functioning</figcaption>
+</figure>
+</div>
 </section>
-<section id="introducing-quarto" class="level1">
-<h1>Introducing Quarto</h1>
-<p><code>Quarto</code> is an open source program for creating Python and <code>R</code> tutorials. It makes it possible to mix seamlessly code and text in the same document and can handle many output formats, including html, pdf or notebook (.ipynb extension). <code>Quarto</code> is strongly recommended for the development of educational resources.</p>
+<section id="which-materials-should-be-used-for-trainings" class="level1">
+<h1>Which materials should be used for trainings?</h1>
+<p>When designing effective training materials, it’s essential to choose formats that actively engage learners and support comprehension. While PDFs, slide decks, and videos are all valuable for delivering content, this guide focuses on interactive environments, which are particularly well-suited for hands-on learning. These environments enable learners to apply concepts immediately, test code in real time, and actively engage with the material—leading to deeper understanding and better long-term retention.</p>
+<p>In the sections that follow, we’ll begin by comparing various interactive environments based on the programming language they support. Then, we’ll walk through how to build and structure them using Quarto.</p>
+<section id="which-interactive-environment-should-you-use" class="level2">
+<h2 class="anchored" data-anchor-id="which-interactive-environment-should-you-use">Which interactive environment should you use ?</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><code>Jupyter</code> notebooks<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> offer an interactive interface that allows you to write <code>Python</code> code, test it, and see the result below the instruction rather than in a separate console. <code>Jupyter</code> notebooks are essential in the fields of data science and education and research because they greatly simplify exploration and experimentation.</p>
+<p>They allow you to combine text in <code>Markdown</code> format (a lighter markup text format than <code>HTML</code> or <span class="math inline">\(\LaTeX\)</span>), <code>Python</code> code, and <code>HTML</code> code for visualizations and animations in a single document.</p>
+<p>Initially, <code>Jupyter</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-jupyter" aria-label="Icon file-type-jupyter from vscode-icons Iconify.design set." title="Icon file-type-jupyter from vscode-icons Iconify.design set."></iconify-icon> was the only software offering these interactive features. Now, there are other ways to benefit from notebook advantages while having an IDE with more comprehensive features than <code>Jupyter</code>. For this reason, as of 2024, it is more practical to use <code>VSCode</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-vscode" aria-label="Icon file-type-vscode from vscode-icons Iconify.design set." title="Icon file-type-vscode from vscode-icons Iconify.design set."></iconify-icon>, a general-purpose code editor but offering excellent features in <code>Python</code>, than <code>Jupyter</code>. For more information on using notebooks in VSCode, refer to the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">official documentation</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./pics/jupyter.png" class="img-fluid figure-img"></p>
+<figcaption>Example with <code>Jupyter</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-jupyter" aria-label="Icon file-type-jupyter from vscode-icons Iconify.design set." title="Icon file-type-jupyter from vscode-icons Iconify.design set."></iconify-icon></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./pics/vscode.png" class="img-fluid figure-img"></p>
+<figcaption>Example with <code>VSCode</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-vscode" aria-label="Icon file-type-vscode from vscode-icons Iconify.design set." title="Icon file-type-vscode from vscode-icons Iconify.design set."></iconify-icon></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>In <i class="fa-brands fa-r-project" aria-label="r-project"></i>, notebooks are not commonly used - even though they offer several features that are particularly valuable for educational purposes.</p>
+<p>When designing <i class="fa-brands fa-r-project" aria-label="r-project"></i>-based training materials, two main options are available, each with its own pros and cons:</p>
+<ol type="1">
+<li><strong>Providing access to an HTML website</strong>
+<ul>
+<li>Advantages: Solutions can be hidden, interactive widgets can be used to offer hints or guide learners step by step, and the layout is optimized for reading.</li>
+<li>Drawbacks: This is not an interactive environment—learners must open a separate RStudio session to try out the code, which can disrupt the flow of learning.</li>
+</ul></li>
+<li><strong>Providing access to a Quarto Markdown (.qmd) file</strong>
+<ul>
+<li>Advantages: Fully interactive—learners can run code directly within the environment, benefiting from live feedback and hands-on practice.</li>
+<li>Drawbacks: All answers and code are visible by default, which may reduce engagement and exploratory effort from the learners.</li>
+</ul></li>
+</ol>
+<p>Since the first option can become cumbersome - especially when learners need to copy and paste large blocks of code - it is generally recommended to use the second option in most cases. Providing direct access to a Quarto Markdown file helps minimize the risk of hard-to-reproduce errors that often arise when trainees switch between an HTML tutorial and their R session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./pics/rstudio.png" class="img-fluid figure-img"></p>
+<figcaption>Exemple with RStudio</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why <code>learnr</code> Is Not Recommended
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While <code>learnr</code> allows for the creation of interactive and advanced elements such as quizzes—making it well-suited for beginner tutorials—it has some important limitations.</p>
+<p>First, it requires deployment on a Shiny server, which can be costly and complex to maintain. Additionally, in <code>learnr</code>, code cells do not share a global environment. This means variables and objects created in one chunk are not accessible in others, making it difficult to manage state or build on previous steps.</p>
+<p>These restrictions limit the usefulness of <code>learnr</code> for more complex tutorials, where maintaining continuity and evolving context across the tutorial is essential.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="introducing-quarto-to-create-training-resources" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-quarto-to-create-training-resources">Introducing <code>Quarto</code> <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon> to create training resources</h2>
+<p><code>Quarto</code> is an open source program for creating <code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i> and <i class="fa-brands fa-r-project" aria-label="r-project"></i> reproducible tutorials. It makes it possible to mix seamlessly code and text in the same document and can handle many output formats, including html, pdf or notebook (.ipynb extension). <code>Quarto</code> is strongly recommended for the development of educational resources.</p>
 <p><img src="pics/quarto.png" class="img-fluid"></p>
 <p>This tutorial assumes that educational resources and training material will be made available in two forms:</p>
 <ul>
-<li>Quarto websites, mixing text and code chunks;</li>
-<li>Interactive scripts: - In Python, training material takes the form of a notebook. This is the standard delivery method for Python code. - In R, training material takes the form of an RStudio project (because notebooks are not frequently used in R).</li>
+<li><code>Quarto</code> websites, mixing text and code chunks;</li>
+<li>Interactive environment (see ☝️)</li>
 </ul>
+</section>
 </section>
 <section id="a-step-by-step-tutorial" class="level1">
 <h1>A step-by-step tutorial</h1>
 <section id="step-1-create-a-github-repository-from-a-template" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-create-a-github-repository-from-a-template">Step 1: create a Github repository from a template</h2>
-<p>The very first step towards developing educational resources consists in creating a Github repository that will contain them all. We recommend that you use templates developed specifically for the AIML4OS project. Depending on the language you want to use, there is a <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-r">template for <code>R</code></a> and a <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-python">template for Python</a>.</p>
+<h2 class="anchored" data-anchor-id="step-1-create-a-github-repository-from-a-template">Step 1: create a <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> repository from a template</h2>
+<p>The very first step towards developing educational resources consists in creating a <code>Github</code> repository that will contain them all. We recommend that you use templates developed specifically for the AIML4OS project</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you are not AIML4OS member and follow this guide
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>You can still use the template - just remove the style components that use AIML4OS aesthetic.</p>
+</div>
+</div>
+</div>
+<p>Depending on the language you want to use, there are different templates:</p>
+<ul>
+<li><i class="fa-brands fa-r-project" aria-label="r-project"></i>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-r">template</a></li>
+<li><i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-python">template</a>.</li>
+</ul>
 <p>Here is a simple procedure to re-use a template:</p>
 <ul>
-<li>Go to the Github page of the chosen template (<code>R</code> or Python);</li>
-<li>Click on the “Use this template” button and then on “Create a new repository” (see screenshot);</li>
+<li>Go to the <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> page of the chosen template;</li>
+<li>Click on the <em>“Use this template”</em> button and then on <em>“Create a new repository”</em> (see screenshot);</li>
 </ul>
-<p><img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" style="max-width:400px;width:100%; text-align-last:center"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 <ul>
-<li>Choose <strong>carefully</strong> the owner and the name of the new repository: - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the <code>AIML4OS</code> organization); - Name: give the repository a meaningful name, for instance “Intro_To_Deep_Learning” or “Intro_To_Linear_Regression”.</li>
+<li>Choose carefully the owner and the name of the new repository:
+<ul>
+<li>Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the <code>AIML4OS</code> organization);</li>
+<li>Name: give the repository a meaningful name, for instance <em>“Intro_To_Deep_Learning”</em> or <em>“Intro_To_Linear_Regression”</em>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="step-2-get-started-with-quarto-on-the-sspcloud" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> on the SSPCloud</h2>
+<h2 class="anchored" data-anchor-id="step-2-get-started-with-quarto-on-the-sspcloud">Step 2: get started with <code>Quarto</code> <iconify-icon role="img" inline="" icon="simple-icons:quarto" style="color:#74aadb;" aria-label="Icon quarto from simple-icons Iconify.design set." title="Icon quarto from simple-icons Iconify.design set."></iconify-icon> on the SSPCloud</h2>
 <p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. This will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
 <p>Here is a simple procedure to start developing resources on the SSP-Cloud. <strong>The procedure is different and slightly longer if this is the first time</strong> you develop resources on this particular project (because you need to define a configuration).</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Not the first time</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Not the first time</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
 <li>Choose Rstudio and click Launch;</li>
@@ -269,7 +420,7 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 <li>You’re all set!</li>
 </ul>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <ul>
 <li>Go the “My Services” Tab;</li>
 <li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
@@ -281,11 +432,11 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 </div>
 </div>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Not the first time</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">First time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Not the first time</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
 <li>Choose <code>Vscode-r-python-julia</code> and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;</li>
@@ -297,7 +448,7 @@ Resources on SSPCloud can be accessed and launched with a simple HTTPS link. Thi
 <li>You’re all set!</li>
 </ul>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <ul>
 <li>Go the “My Services” Tab;</li>
 <li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
@@ -336,12 +487,12 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 <section id="developing-interactive-scripts" class="level3">
 <h3 class="anchored" data-anchor-id="developing-interactive-scripts">Developing interactive scripts</h3>
 <p>A compléter sur Quarto/R et Notebooks Python.</p>
-<section id="r-1" class="level4">
-<h4 class="anchored" data-anchor-id="r-1">R</h4>
+<section id="r" class="level4">
+<h4 class="anchored" data-anchor-id="r">R</h4>
 <p>A compléter sur Quarto/R</p>
 </section>
-<section id="python-1" class="level4">
-<h4 class="anchored" data-anchor-id="python-1">Python</h4>
+<section id="python-2" class="level4">
+<h4 class="anchored" data-anchor-id="python-2">Python</h4>
 <p>A compléter sur Notebooks Python.</p>
 <p>It makes more sense to provide your trainees with a jupyter notebook. To generate it, you can write</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--to</span> ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -394,7 +545,13 @@ TO DO -->
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><code>Jupyter</code> originated from the <code>IPython</code> project, an interactive environment for <code>Python</code> developed by Fernando Pérez in 2001. In 2014, the project evolved to support other programming languages in addition to Python, leading to the creation of the Jupyter project. The name “Jupyter” is an acronym referring to the three main languages it supports: <code>Julia</code>, <code>Python</code>, and <code>R</code>. <code>Jupyter</code> notebooks are crucial in the fields of data science and education and research because they greatly simplify exploration and experimentation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
