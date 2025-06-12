@@ -15,5 +15,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    number-sections: true
 
 author: "Lino Galiana"
