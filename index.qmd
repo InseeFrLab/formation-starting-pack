@@ -247,13 +247,11 @@ Then go to [https://datalab.sspcloud.fr/my-services](https://datalab.sspcloud.fr
 
 ### Developing interactive scripts
 
-A compléter sur Quarto/R et Notebooks Python.
-
 #### R
 
 A compléter sur Quarto/R
 
-The function `install.packages()` must not be used anywhere in the documents (see below for recommendations on dependency management).
+Importantly, __the function `install.packages()` must not be used anywhere in the documents__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
 
 #### Python
 
@@ -275,7 +273,7 @@ __Gérer les dépendances: à compléter par Lino__
 
 ## Step 4: set up a Github pages website
 
-__This step is optional__, depending on whether your resources include a website. If your resources consist only in Jupyter notebooks, R scripts or Quarto documents with R chunks, you can skip this step.
+__This step is optional__, depending on whether your resources include a website. You can skip this step if your resources consist only in interactive environments (Jupyter notebooks for `Python`, interactive Quarto documents with `R` chunks for `R`).
 
 ### Create the `gh-pages` branch
 
@@ -297,7 +295,10 @@ A few important remarks on automated deployment:
 - The website is deployed at an URL that depends on the owner and the name of the repository: `https://{REPO_OWNER}.github.io/{REPO_NAME}/`.
 - You can monitor Github Actions jobs in the "Actions" tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.
 
-## Step 5: make your resources available on an online website
+## Step 5: make your interactive environments easily available on the SSP Cloud
+
+__This step is optional__, depending on whether your resources include interactive environments (Jupyter notebooks for `Python`, interactive Quarto documents with `R` chunks for `R`). You can skip this step if your resources consist only in a Quarto website.
+
 
 A compléter avec Inès
 
