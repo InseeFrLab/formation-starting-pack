@@ -170,7 +170,7 @@ quarto render --to ipynb
 
 Notebooks will be written in the `_site` folder
 
-### What you should do at all times
+### What you should do at all times when developing resources
 
 __It is essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
 
@@ -193,9 +193,12 @@ git push origin gh-pages
 
 ### Define a Github Actions workflow
 
-You need to define a GHA workflow to automate output construction and deployment. A GHA workflow is just a list of instructions (for instance: install `R`, install packages...) that are executed automatically every time (for instance every time you push on the master branch). A GHA workflow is done using specific yaml scripts, located in the `.github/workflows` directory of your repository. The templates already contains standard workflows that you can use as a starting point.
+You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install `R`, install packages...) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific `yaml` scripts, located in the `.github/workflows` directory of your repository. The templates already contain standard workflows that you can use as a starting point. 
 
-You can monitor Github Actions jobs in the "Actions" tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.
+A few important remarks on automated deployment:
+
+- The website is deployed at an URL that depends on the owner and the name of the repository: `https://{REPO_OWNER}.github.io/{REPO_NAME}/`.
+- You can monitor Github Actions jobs in the "Actions" tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.
 
 ## Step 5: make your resources available on an online website
 
