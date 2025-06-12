@@ -162,9 +162,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
 - Customize the configuration by changing three settings:
-      - In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
-      - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-      - In the "Network Access" tab, enable access to your service through port 5000.
+      + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+      + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+      + In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -191,9 +191,9 @@ Here is a simple procedure to start developing resources on the SSP-Cloud. __The
 - Go the "My Services" Tab and click on "New Service";
 - Choose `Vscode-r-python-julia` and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;
 - Customize the configuration by changing three settings:
-      - In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
-      - In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-      - In the "Network Access" tab, enable access to your service through port 5000.
+      + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
+      + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
+      + In the "Network Access" tab, enable access to your service through port 5000.
 - Click on Save configuration;
 - Click on Launch;
 - Open the Vscode service;
