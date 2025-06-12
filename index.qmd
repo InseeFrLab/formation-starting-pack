@@ -7,12 +7,12 @@ author: "Lino Galiana and Olivier Meslin"
 
 This tutorial aims to be a practical guide for people developing educational resources in {{< fa brands r-project >}} or `Python` {{< fa brands python >}} and wishing to disseminate them easily through the `SSPCloud`.
 
-To make this possible, a few technical prerequisites are needed - these are outlined in @importantreq.
+To make this possible, a few technical prerequisites are needed - these are outlined in @imp-req.
 
 The aim of this tutorial is to get you started quickly on building educational resources with a __state-of-the-art level of reproducibility__. The next sections explain how to develop educational resources, and how to disseminate them on the SPPCloud. Keep in mind that this tutorial is intended for people developing resources, not for the users of these resources.
 
 
-::: {#important-req .callout-important collapse="false"}
+::: {#imp-req .callout-important collapse="false"}
 ## Technical requirements to deploy educational resources
 
 - A minimum level of proficiency in `Git` {{< fa brands git-alt >}} is required to develop and make available online training resources. However, accessing to these resources on the SSPCloud does not require any familiarity with Git.
@@ -222,7 +222,7 @@ If your resources include a website, it is convenient to have a look at what thi
 quarto preview --port 5000 --host 0.0.0.0
 ```
 
-Then go to https://datalab.sspcloud.fr/my-services, open the README of the service you are using and click on the link to the external port.
+Then go to [https://datalab.sspcloud.fr/my-services](https://datalab.sspcloud.fr/my-services), open the README of the service you are using and click on the link to the external port.
 
 ::: {#fig-port5000 layout-ncol=2}
 
