@@ -206,7 +206,7 @@ window.Quarto = {
   <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch"><span class="header-section-number">3.4.1</span> Create the <code>gh-pages</code> branch</a></li>
   <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow"><span class="header-section-number">3.4.2</span> Define a Github Actions workflow</a></li>
   </ul></li>
-  <li><a href="#step-5-make-your-resources-available-on-an-online-website" id="toc-step-5-make-your-resources-available-on-an-online-website" class="nav-link" data-scroll-target="#step-5-make-your-resources-available-on-an-online-website"><span class="header-section-number">3.5</span> Step 5: make your resources available on an online website</a></li>
+  <li><a href="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" id="toc-step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="nav-link" data-scroll-target="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -519,11 +519,10 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 </section>
 <section id="developing-interactive-scripts" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</h3>
-<p>A compléter sur Quarto/R et Notebooks Python.</p>
 <section id="r" class="level4" data-number="3.3.2.1">
 <h4 data-number="3.3.2.1" class="anchored" data-anchor-id="r"><span class="header-section-number">3.3.2.1</span> R</h4>
 <p>A compléter sur Quarto/R</p>
-<p>The function <code>install.packages()</code> must not be used anywhere in the documents (see below for recommendations on dependency management).</p>
+<p>Importantly, <strong>the function <code>install.packages()</code> must not be used anywhere in the documents</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
 </section>
 <section id="python-3" class="level4" data-number="3.3.2.2">
 <h4 data-number="3.3.2.2" class="anchored" data-anchor-id="python-3"><span class="header-section-number">3.3.2.2</span> Python</h4>
@@ -541,7 +540,7 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 </section>
 <section id="step-4-set-up-a-github-pages-website" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</h2>
-<p><strong>This step is optional</strong>, depending on whether your resources include a website. If your resources consist only in Jupyter notebooks, R scripts or Quarto documents with R chunks, you can skip this step.</p>
+<p><strong>This step is optional</strong>, depending on whether your resources include a website. You can skip this step if your resources consist only in interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>).</p>
 <section id="create-the-gh-pages-branch" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="create-the-gh-pages-branch"><span class="header-section-number">3.4.1</span> Create the <code>gh-pages</code> branch</h3>
 <p>When developing resources, you will most likely use the <code>main</code> branch. However, for <code>Github Actions</code> to work, you need an additional branch <code>gh-pages</code> used by Github to deploy websites. This one will be rewritten automatically by <code>Github</code> after every Github Actions pipeline. However, you need to create it first. <strong>This should be done only once.</strong> Quarto documentation gives this command to create that branch. <strong>Be careful with that command, do not use before having done a first push on Github.</strong></p>
@@ -560,8 +559,9 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 </ul>
 </section>
 </section>
-<section id="step-5-make-your-resources-available-on-an-online-website" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="step-5-make-your-resources-available-on-an-online-website"><span class="header-section-number">3.5</span> Step 5: make your resources available on an online website</h2>
+<section id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</h2>
+<p><strong>This step is optional</strong>, depending on whether your resources include interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>). You can skip this step if your resources consist only in a Quarto website.</p>
 <p>A compléter avec Inès</p>
 <!-- ## Make a ready to use link to your resources
 
