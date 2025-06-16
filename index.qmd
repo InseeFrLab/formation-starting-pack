@@ -284,7 +284,11 @@ If you can't access the website preview because there is no link in the README, 
 
 A compléter sur Quarto/R
 
-Importantly, __the function `install.packages()` must not be used anywhere in the documents__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
+::: {.callout-warning collapse="false"}
+__The function `install.packages()` must not be used anywhere in the documents__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
+:::
+
+
 
 #### Python
 
