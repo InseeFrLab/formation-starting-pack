@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -198,9 +198,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</a>
   <ul class="collapse">
-  <li><a href="#developing-and-previewing-a-website" id="toc-developing-and-previewing-a-website" class="nav-link" data-scroll-target="#developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</a></li>
-  <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</a></li>
-  <li><a href="#managing-dependencies-when-developing-resources" id="toc-managing-dependencies-when-developing-resources" class="nav-link" data-scroll-target="#managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.3</span> Managing dependencies when developing resources</a></li>
+  <li><a href="#download-data-if-needed" id="toc-download-data-if-needed" class="nav-link" data-scroll-target="#download-data-if-needed"><span class="header-section-number">3.3.1</span> Download data (if needed)</a></li>
+  <li><a href="#developing-and-previewing-a-website" id="toc-developing-and-previewing-a-website" class="nav-link" data-scroll-target="#developing-and-previewing-a-website"><span class="header-section-number">3.3.2</span> Developing and previewing a website</a></li>
+  <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.3</span> Developing interactive scripts</a></li>
+  <li><a href="#managing-dependencies-when-developing-resources" id="toc-managing-dependencies-when-developing-resources" class="nav-link" data-scroll-target="#managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.4</span> Managing dependencies when developing resources</a></li>
   </ul></li>
   <li><a href="#step-4-set-up-a-github-pages-website" id="toc-step-4-set-up-a-github-pages-website" class="nav-link" data-scroll-target="#step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</a>
   <ul class="collapse">
@@ -471,12 +472,13 @@ Warning
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
 <li>Choose Rstudio and click Launch;</li>
-<li>Customize the configuration by changing three settings:
+<li>Customize the configuration by changing four settings:
 <ul>
 <li>In the “Friendly Name” field, choose a meaningful name (for instance <code>dev_Intro_To_Linear_Regression</code>);<br>
 </li>
 <li>In the “Repository” field of the “Git” tab, paste the URL of the repository you created in step 1 (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression</code>);</li>
-<li>In the “Network Access” tab, enable access to your service through port 5000.</li>
+<li>In the “Network Access” tab, enable access to your service through port 5000;</li>
+<li>(optional) In the “Initialization scripts” tab, paste the URL of your init script (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh</code>);</li>
 </ul></li>
 <li>Click on Save configuration;</li>
 <li>Click on Launch;</li>
@@ -496,7 +498,8 @@ Warning
 <li>In the “Friendly Name” field, choose a meaningful name (for instance <code>dev_Intro_To_Linear_Regression</code>);<br>
 </li>
 <li>In the “Repository” field of the “Git” tab, paste the URL of the repository you created in step 1 (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression</code>);</li>
-<li>In the “Network Access” tab, enable access to your service through port 5000.</li>
+<li>In the “Network Access” tab, enable access to your service through port 5000;</li>
+<li>(optional) In the “Initialization scripts” tab, paste the URL of your init script (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh</code>);</li>
 </ul></li>
 <li>Click on Save configuration;</li>
 <li>Click on Launch;</li>
@@ -554,8 +557,17 @@ Git, git, git, git, git
 </div>
 </div>
 </div>
-<section id="developing-and-previewing-a-website" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</h3>
+<section id="download-data-if-needed" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="download-data-if-needed"><span class="header-section-number">3.3.1</span> Download data (if needed)</h3>
+<p>Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:</p>
+<ul>
+<li>Upload your data files on the S3 storage of the SSP Cloud, and make sure that the files are public;</li>
+<li>Adapt the <code>download_data.sh</code> file so that the data is downloaded to your folder of choice;</li>
+<li>Add this script as an initialization script in your configuration (see step 2).</li>
+</ul>
+</section>
+<section id="developing-and-previewing-a-website" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="developing-and-previewing-a-website"><span class="header-section-number">3.3.2</span> Developing and previewing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
 <p>It is often convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--port</span> 5000 <span class="at">--host</span> 0.0.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -599,8 +611,8 @@ What to do if you can’t access the website preview?
 </div>
 </div>
 </section>
-<section id="developing-interactive-scripts" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</h3>
+<section id="developing-interactive-scripts" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="developing-interactive-scripts"><span class="header-section-number">3.3.3</span> Developing interactive scripts</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
 <div class="tab-content">
@@ -632,8 +644,8 @@ Warning
 </div>
 </div>
 </section>
-<section id="managing-dependencies-when-developing-resources" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.3</span> Managing dependencies when developing resources</h3>
+<section id="managing-dependencies-when-developing-resources" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.4</span> Managing dependencies when developing resources</h3>
 <p>A major challenge in any data science project is to make sure that its codes can be re-run without error by someone working in a different environment (this is called <strong>portability</strong>). Various technical requirements must be met to ensure portability; one of them is to keep track of all packages needed to run the code (and of the exact version of each package!), so that a new user can reinstall them easily. This section explains how to manage these dependencies using the right tools.</p>
 <p>The dependency management tool depends on the language you use:</p>
 <ul>
