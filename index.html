@@ -202,6 +202,13 @@ window.Quarto = {
   <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</a></li>
   <li><a href="#managing-dependencies-when-developing-resources" id="toc-managing-dependencies-when-developing-resources" class="nav-link" data-scroll-target="#managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.3</span> Managing dependencies when developing resources</a></li>
   </ul></li>
+  <li><a href="#step-4-set-up-a-github-pages-website" id="toc-step-4-set-up-a-github-pages-website" class="nav-link" data-scroll-target="#step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</a>
+  <ul class="collapse">
+  <li><a href="#what-are-github-actions-and-github-pages-and-why-are-they-useful" id="toc-what-are-github-actions-and-github-pages-and-why-are-they-useful" class="nav-link" data-scroll-target="#what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</a></li>
+  <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch"><span class="header-section-number">3.4.2</span> Create the <code>gh-pages</code> branch</a></li>
+  <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</a></li>
+  </ul></li>
+  <li><a href="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" id="toc-step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="nav-link" data-scroll-target="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -631,7 +638,7 @@ Warning
 <li>If you use <code>Python</code>, we recommend that you use <code>uv</code>.</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Step 4: set up a Github pages website</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Step 5: make your interactive environments easily available on the SSP Cloud</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p><code>renv</code> is an R package that helps you manage the dependencies of each of your projects. It means that <code>renv</code> lets you keep track of what packages are needed to run your code, and in what exact version. More precisely, using <code>renv</code> adds two specific files to your project:</p>
@@ -650,10 +657,15 @@ Warning
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p><strong>à compléter par Lino</strong></p>
 </div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+</div>
+</div>
+</section>
+</section>
+<section id="step-4-set-up-a-github-pages-website" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</h2>
 <p><strong>This step is optional</strong>, depending on whether your resources include a website. You can skip this step if your resources consist only in interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>).</p>
-<section id="what-are-github-actions-and-github-pages-and-why-are-they-useful" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.3.4</span> What are Github Actions and Github pages and why are they useful?</h3>
+<section id="what-are-github-actions-and-github-pages-and-why-are-they-useful" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</h3>
 <p>If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you’ll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:</p>
 <ul>
 <li>GitHub Actions is a tool built into GitHub that runs pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the <code>main</code> branch of your repository, without you doing anything manually.</li>
@@ -661,16 +673,16 @@ Warning
 </ul>
 <p>The main message is: <strong>by combining GitHub Actions with GitHub Pages, you can set things up so that every time you make changes to your repository, GitHub Actions automatically updates your website and publishes it on GitHub Pages.</strong> This will save you a lot of time!</p>
 </section>
-<section id="create-the-gh-pages-branch" class="level3" data-number="3.3.5">
-<h3 data-number="3.3.5" class="anchored" data-anchor-id="create-the-gh-pages-branch"><span class="header-section-number">3.3.5</span> Create the <code>gh-pages</code> branch</h3>
+<section id="create-the-gh-pages-branch" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="create-the-gh-pages-branch"><span class="header-section-number">3.4.2</span> Create the <code>gh-pages</code> branch</h3>
 <p>When developing resources, you will most likely use the <code>main</code> branch. However, for <code>Github Actions</code> to work, you need an additional branch <code>gh-pages</code> used by Github to deploy websites. This one will be rewritten automatically by <code>Github</code> after every Github Actions workflow. However, you need to create it first. <strong>This should be done only once.</strong> Quarto documentation gives this command to create that branch. <strong>Be careful with that command, do not use before having done a first push on Github.</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="co"># make sure all changes are committed before running this!</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"Initialising gh-pages branch"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="define-a-github-actions-workflow" class="level3" data-number="3.3.6">
-<h3 data-number="3.3.6" class="anchored" data-anchor-id="define-a-github-actions-workflow"><span class="header-section-number">3.3.6</span> Define a Github Actions workflow</h3>
+<section id="define-a-github-actions-workflow" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</h3>
 <p>You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install <code>R</code>, install packages…) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific <code>yaml</code> scripts, located in the <code>.github/workflows</code> directory of your repository. The templates already contain standard workflows that you can use as a starting point.</p>
 <p>A few important remarks on automated deployment:</p>
 <ul>
@@ -678,8 +690,9 @@ Warning
 <li>You can monitor Github Actions jobs in the “Actions” tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work often requires some debugging.</li>
 </ul>
 </section>
-</div>
-<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+</section>
+<section id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</h2>
 <p><strong>This step is optional</strong>, depending on whether your resources include interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>). You can skip this step if your resources consist only in a Quarto website.</p>
 <p>A compléter avec Inès</p>
 <!-- ## Make a ready to use link to your resources
@@ -700,10 +713,6 @@ Let's assume now you want learners to avoid copy-pasting code from your program 
 TO DO -->
 
 
-</div>
-</div>
-</div>
-</section>
 </section>
 </section>
 
