@@ -337,7 +337,7 @@ Here is how to use `renv`:
 - When developing resources, you should regularly run `renv::snapshot()`. This command will analyze your `R` scripts, detects what packages are used, and updates the `renv.lock` file. Do not forget to commit and push the changes to the `renv.lock` file!
 - When you start working on your project with a new service, you should run `renv::restore()`. This command will reinstall all the packages listed in the `renv.lock` file.
 
-For more information, see the [official documentation of `renv`](https://rstudio.github.io/renv/articles/renv.html).
+For more information, see the [official documentation](https://rstudio.github.io/renv/articles/renv.html) of `renv`.
 
 ## `Python` {{< fa brands python >}}
 
@@ -354,7 +354,7 @@ __This step is optional__, depending on whether your resources include a website
 
 ### What are Github Actions and Github pages and why are they useful?
 
-If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you'll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:
+If you are developing a website for educational purposes, you probably want to publish it online. If you perform the publication manually (building the website, then publishing it), you'll have to re-do this series of tasks every time you change your website. This is time-consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:
 
 - GitHub Actions is a tool built into GitHub that runs pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the `main` branch of your repository, without you doing anything manually. 
 - GitHub Pages is a another tool from Github that lets you publish static websites directly from a GitHub repository; it is often used for project documentation or personal portfolios.
@@ -374,12 +374,13 @@ git push origin gh-pages
 
 ### Define a Github Actions workflow
 
-You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install `R`, install packages...) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific `yaml` scripts, located in the `.github/workflows` directory of your repository. The templates already contain standard workflows that you can use as a starting point. 
+You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install `R`, install packages...) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific `yaml` scripts, located in the `.github/workflows` directory of your repository. The templates already contain standard workflows that you can use as a starting point. We recommend that you have a careful look at these workflows; comments were added so that they are easy to follow.
 
 A few important remarks on automated deployment:
 
 - The website is deployed at an URL that depends on the owner and the name of the repository: `https://{REPO_OWNER}.github.io/{REPO_NAME}/`.
 - You can monitor Github Actions jobs in the "Actions" tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work often requires some debugging.
+
 
 ## Step 5: make your interactive environments easily available on the SSP Cloud
 
