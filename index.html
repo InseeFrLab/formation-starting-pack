@@ -535,7 +535,7 @@ Warning
 </section>
 <section id="step-3-develop-resources" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</h2>
-<p>If you have created a repository from a template and defined a development configuration, developing resources basically means to modifying and extending the minimal examples available in your repository.</p>
+<p>If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.</p>
 <section id="developing-a-website" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
@@ -586,7 +586,22 @@ What to do if you can’t access the website preview?
 <section id="r" class="level4" data-number="3.3.2.1">
 <h4 data-number="3.3.2.1" class="anchored" data-anchor-id="r"><span class="header-section-number">3.3.2.1</span> R</h4>
 <p>A compléter sur Quarto/R</p>
-<p>Importantly, <strong>the function <code>install.packages()</code> must not be used anywhere in the documents</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>The function <code>install.packages()</code> must not be used anywhere in the documents</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
+</div>
+</div>
+</div>
 </section>
 <section id="python-3" class="level4" data-number="3.3.2.2">
 <h4 data-number="3.3.2.2" class="anchored" data-anchor-id="python-3"><span class="header-section-number">3.3.2.2</span> Python</h4>
@@ -609,7 +624,7 @@ What to do if you can’t access the website preview?
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</h3>
 <p>If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you’ll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:</p>
 <ul>
-<li>GitHub Actions is a tool built into GitHub that run pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the <code>main</code> branch of your repository, without you doing anything manually.</li>
+<li>GitHub Actions is a tool built into GitHub that runs pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the <code>main</code> branch of your repository, without you doing anything manually.</li>
 <li>GitHub Pages is a another tool from Github that lets you publish static websites directly from a GitHub repository; it is often used for project documentation or personal portfolios.</li>
 </ul>
 <p>The main message is: <strong>by combining GitHub Actions with GitHub Pages, you can set things up so that every time you make changes to your repository, GitHub Actions automatically updates your website and publishes it on GitHub Pages.</strong> This will save you a lot of time!</p>
