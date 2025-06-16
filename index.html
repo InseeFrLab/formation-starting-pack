@@ -200,7 +200,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#developing-and-previewing-a-website" id="toc-developing-and-previewing-a-website" class="nav-link" data-scroll-target="#developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</a></li>
   <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</a></li>
-  <li><a href="#what-you-should-do-at-all-times-when-developing-resources" id="toc-what-you-should-do-at-all-times-when-developing-resources" class="nav-link" data-scroll-target="#what-you-should-do-at-all-times-when-developing-resources"><span class="header-section-number">3.3.3</span> What you should do at all times when developing resources</a></li>
+  <li><a href="#managing-dependencies-when-developing-resources" id="toc-managing-dependencies-when-developing-resources" class="nav-link" data-scroll-target="#managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.3</span> Managing dependencies when developing resources</a></li>
   </ul></li>
   <li><a href="#step-4-set-up-a-github-pages-website" id="toc-step-4-set-up-a-github-pages-website" class="nav-link" data-scroll-target="#step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</a>
   <ul class="collapse">
@@ -483,6 +483,7 @@ Warning
 <li>Open the Rstudio service;</li>
 <li>Rename the Rproj file with a meaningful name (for instance <code>Intro_To_Linear_Regression.Rproj</code>);</li>
 <li>Click on the Rproj file to open the RStudio project;</li>
+<li>Run <code>renv::restore()</code> (this may take a while);</li>
 <li>You’re all set!</li>
 </ul>
 </div>
@@ -518,6 +519,7 @@ Warning
 <li>On the right side of the screen, find the configuration of your project and click on Launch;</li>
 <li>Open the Rstudio service;</li>
 <li>Click on the Rproj file to open the RStudio project;</li>
+<li>Run <code>renv::restore()</code> (this may take a while);</li>
 <li>You’re all set!</li>
 </ul>
 </div>
@@ -536,6 +538,22 @@ Warning
 <section id="step-3-develop-resources" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</h2>
 <p>If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Git, git, git, git, git
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>It is absolutely essential that you commit and push your changes on a regular basis</strong> (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.</p>
+</div>
+</div>
+</div>
 <section id="developing-and-previewing-a-website" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
@@ -560,7 +578,7 @@ Figure&nbsp;1: Accessing website preview
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -569,7 +587,7 @@ What to do if you can’t access the website preview?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you can’t access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved:</p>
 <ul>
@@ -587,7 +605,7 @@ What to do if you can’t access the website preview?
 <h4 data-number="3.3.2.1" class="anchored" data-anchor-id="r"><span class="header-section-number">3.3.2.1</span> R</h4>
 <p>A compléter sur Quarto/R</p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -596,9 +614,9 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><strong>The function <code>install.packages()</code> must not be used anywhere in the documents</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
+<p><strong>The function <code>install.packages()</code> must not be used anywhere in your resources</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
 </div>
 </div>
 </div>
@@ -611,10 +629,27 @@ Warning
 <p>Notebooks will be written in the <code>_site</code> folder</p>
 </section>
 </section>
-<section id="what-you-should-do-at-all-times-when-developing-resources" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="what-you-should-do-at-all-times-when-developing-resources"><span class="header-section-number">3.3.3</span> What you should do at all times when developing resources</h3>
-<p><strong>It is essential that you commit and push your changes on a regular basis</strong> (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.</p>
-<p><strong>Gérer les dépendances: à compléter par Lino</strong></p>
+<section id="managing-dependencies-when-developing-resources" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="managing-dependencies-when-developing-resources"><span class="header-section-number">3.3.3</span> Managing dependencies when developing resources</h3>
+<p>A major challenge in any data science project is to make sure that its codes can be re-run without error by someone working in a different environment (this is called <strong>portability</strong>). Various technical requirements must be met to ensure portability; one of them is to keep track of all packages needed to run the code (and of the exact version of each package!), so that a new user can reinstall them easily. This section explains how to manage these dependencies using the right tools.</p>
+<section id="managing-dependencies-with-r-using-renv" class="level4" data-number="3.3.3.1">
+<h4 data-number="3.3.3.1" class="anchored" data-anchor-id="managing-dependencies-with-r-using-renv"><span class="header-section-number">3.3.3.1</span> <strong>Managing dependencies with <code>R</code>: using <code>renv</code></strong></h4>
+<p><code>renv</code> is an R package that helps you manage the dependencies of each of your projects. It means that <code>renv</code> lets you keep track of what packages are needed to run your code, and in what exact version. More precisely, using <code>renv</code> adds two specific files to your project:</p>
+<ul>
+<li>The lockfile <code>renv.lock</code> records information about every package used in the project, so that these packages can be re-installed on a new machine;</li>
+<li>the <code>.Rprofile</code> project file. This file is run automatically every time you start <code>R</code> so that <code>renv</code> is used properly.</li>
+</ul>
+<p>Here is how to use <code>renv</code>:</p>
+<ul>
+<li>The first step in using <code>renv</code> is to initiate the tracking of dependencies using <code>renv::init()</code>. <strong>You do not need to do it if you use the <code>R</code> template</strong> because this was already done.</li>
+<li>When developing resources, you should regularly run <code>renv::snapshot()</code>. This command will analyze your <code>R</code> scripts, detects what packages are used, and updates the <code>renv.lock</code> file. Do not forget to commit and push the changes to the <code>renv.lock</code> file!</li>
+<li>When you start working on your project with a new service, you should run <code>renv::restore()</code>. This command will reinstall all the packages listed in the <code>renv.lock</code> file.</li>
+</ul>
+<p>For more information, see the <a href="https://rstudio.github.io/renv/articles/renv.html">official documentation of <code>renv</code></a>.</p>
+</section>
+<section id="managing-dependencies-with-python-à-compléter-par-lino" class="level4" data-number="3.3.3.2">
+<h4 data-number="3.3.3.2" class="anchored" data-anchor-id="managing-dependencies-with-python-à-compléter-par-lino"><span class="header-section-number">3.3.3.2</span> <strong>Managing dependencies with Python: à compléter par Lino</strong></h4>
+</section>
 </section>
 </section>
 <section id="step-4-set-up-a-github-pages-website" class="level2" data-number="3.4">
