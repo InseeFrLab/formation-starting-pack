@@ -192,8 +192,9 @@ window.Quarto = {
   </ul></li>
   <li><a href="#step-2-define-your-development-configuration-on-the-sspcloud" id="toc-step-2-define-your-development-configuration-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</a>
   <ul class="collapse">
-  <li><a href="#how-to-define-a-configuration" id="toc-how-to-define-a-configuration" class="nav-link" data-scroll-target="#how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</a></li>
-  <li><a href="#how-to-use-an-existing-configuration" id="toc-how-to-use-an-existing-configuration" class="nav-link" data-scroll-target="#how-to-use-an-existing-configuration"><span class="header-section-number">3.2.2</span> How to use an existing configuration</a></li>
+  <li><a href="#what-is-a-configuration-and-why-is-it-useful" id="toc-what-is-a-configuration-and-why-is-it-useful" class="nav-link" data-scroll-target="#what-is-a-configuration-and-why-is-it-useful"><span class="header-section-number">3.2.1</span> What is a configuration and why is it useful?</a></li>
+  <li><a href="#how-to-define-a-configuration" id="toc-how-to-define-a-configuration" class="nav-link" data-scroll-target="#how-to-define-a-configuration"><span class="header-section-number">3.2.2</span> How to define a configuration</a></li>
+  <li><a href="#how-to-use-an-existing-configuration" id="toc-how-to-use-an-existing-configuration" class="nav-link" data-scroll-target="#how-to-use-an-existing-configuration"><span class="header-section-number">3.2.3</span> How to use an existing configuration</a></li>
   </ul></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</a>
   <ul class="collapse">
@@ -434,9 +435,34 @@ If you are not AIML4OS member and follow this guide anyway
 <h2 data-number="3.2" class="anchored" data-anchor-id="step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</h2>
 <!-- get started with `Quarto`   -->
 <p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
-<section id="how-to-define-a-configuration" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</h3>
-<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. If you define a configuration, you can come back to the SSP Cloud any time and resume developing your resources in only one click. Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.</p>
+<section id="what-is-a-configuration-and-why-is-it-useful" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="what-is-a-configuration-and-why-is-it-useful"><span class="header-section-number">3.2.1</span> What is a configuration and why is it useful?</h3>
+<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. In technical terms, a configuration is just a service available on the SSP Cloud (eg: RStudio or VSCode) with additional user-defined settings such as: the Github repository you want to work on, your Github credentials, the size of memory and number of CPU you want to use, the initialization script you want to run… Defining a configuration has two advantage:</p>
+<ul>
+<li>it lets you define the technical environment you want to use for a specific project;</li>
+<li>you can resume working on your project at any time in only one click, and be sure that the technical environment remains exactly the same.</li>
+</ul>
+<p>Your configurations are listed on the right side of the “My services” tab. To use a configuration, you just have to click on Launch (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).</p>
+<p><img src="pics/SSPCloud4.png" class="img-fluid" width="350"></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-define-a-configuration" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-define-a-configuration"><span class="header-section-number">3.2.2</span> How to define a configuration</h3>
 <p>Here is how to define a development configuration the SSP-Cloud.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
@@ -480,8 +506,8 @@ If you are not AIML4OS member and follow this guide anyway
 </div>
 </div>
 </section>
-<section id="how-to-use-an-existing-configuration" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-use-an-existing-configuration"><span class="header-section-number">3.2.2</span> How to use an existing configuration</h3>
+<section id="how-to-use-an-existing-configuration" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="how-to-use-an-existing-configuration"><span class="header-section-number">3.2.3</span> How to use an existing configuration</h3>
 <p>Once a configuration is defined, using it is very easy and very fast:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
@@ -534,7 +560,7 @@ Figure&nbsp;1: Accessing website preview
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -543,7 +569,7 @@ What to do if you can’t access the website preview?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you can’t access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved:</p>
 <ul>
