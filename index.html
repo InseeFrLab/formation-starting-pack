@@ -198,7 +198,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</a>
   <ul class="collapse">
-  <li><a href="#developing-a-website" id="toc-developing-a-website" class="nav-link" data-scroll-target="#developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</a></li>
+  <li><a href="#developing-and-previewing-a-website" id="toc-developing-and-previewing-a-website" class="nav-link" data-scroll-target="#developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</a></li>
   <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.2</span> Developing interactive scripts</a></li>
   <li><a href="#what-you-should-do-at-all-times-when-developing-resources" id="toc-what-you-should-do-at-all-times-when-developing-resources" class="nav-link" data-scroll-target="#what-you-should-do-at-all-times-when-developing-resources"><span class="header-section-number">3.3.3</span> What you should do at all times when developing resources</a></li>
   </ul></li>
@@ -443,7 +443,7 @@ If you are not AIML4OS member and follow this guide anyway
 <li>you can resume working on your project at any time in only one click, and be sure that the technical environment remains exactly the same.</li>
 </ul>
 <p>Your configurations are listed on the right side of the “My services” tab. To use a configuration, you just have to click on Launch (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).</p>
-<p><img src="pics/SSPCloud4.png" class="img-fluid" width="350"></p>
+<p><img src="pics/SSPCloud4.png" class="img-fluid" width="600"></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -536,8 +536,8 @@ Warning
 <section id="step-3-develop-resources" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</h2>
 <p>If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.</p>
-<section id="developing-a-website" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</h3>
+<section id="developing-and-previewing-a-website" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-and-previewing-a-website"><span class="header-section-number">3.3.1</span> Developing and previewing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
 <p>If your resources include a website, it is convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview <span class="at">--port</span> 5000 <span class="at">--host</span> 0.0.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
