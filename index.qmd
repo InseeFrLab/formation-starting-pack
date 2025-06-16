@@ -343,7 +343,7 @@ For more information, see the [official documentation of `renv`](https://rstudio
 
 __à compléter par Lino__
 
-
+:::
 
 
 
