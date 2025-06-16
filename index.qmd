@@ -192,10 +192,11 @@ Here is how to define a development configuration the SSP-Cloud.
 
 - Go the "My Services" Tab and click on "New Service";
 - Choose Rstudio and click Launch;
-- Customize the configuration by changing three settings:
+- Customize the configuration by changing four settings:
   + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
   + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-  + In the "Network Access" tab, enable access to your service through port 5000.
+  + In the "Network Access" tab, enable access to your service through port 5000;
+  + (optional) In the "Initialization scripts" tab, paste the URL of your init script (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh`);
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -211,7 +212,8 @@ Here is how to define a development configuration the SSP-Cloud.
 - Customize the configuration by changing three settings:
   + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
   + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
-  + In the "Network Access" tab, enable access to your service through port 5000.
+  + In the "Network Access" tab, enable access to your service through port 5000;
+  + (optional) In the "Initialization scripts" tab, paste the URL of your init script (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh`);
 - Click on Save configuration;
 - Click on Launch;
 - Open the Vscode service;
@@ -251,8 +253,15 @@ If you have created a repository from a template and defined a development confi
 ## Git, git, git, git, git
 
 __It is absolutely essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
-
 :::
+
+### Download data (if needed)
+
+Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:
+
+- Upload your data files on the S3 storage of the SSP Cloud, and make sure that the files are public;
+- Adapt the `download_data.sh` file so that the data is downloaded to your folder of choice;
+- Add this script as an initialization script in your configuration (see step 2).
 
 
 ### Developing and previewing a website
