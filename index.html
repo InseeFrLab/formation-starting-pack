@@ -652,7 +652,7 @@ Warning
 <li>When developing resources, you should regularly run <code>renv::snapshot()</code>. This command will analyze your <code>R</code> scripts, detects what packages are used, and updates the <code>renv.lock</code> file. Do not forget to commit and push the changes to the <code>renv.lock</code> file!</li>
 <li>When you start working on your project with a new service, you should run <code>renv::restore()</code>. This command will reinstall all the packages listed in the <code>renv.lock</code> file.</li>
 </ul>
-<p>For more information, see the <a href="https://rstudio.github.io/renv/articles/renv.html">official documentation of <code>renv</code></a>.</p>
+<p>For more information, see the <a href="https://rstudio.github.io/renv/articles/renv.html">official documentation</a> of <code>renv</code>.</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p><strong>à compléter par Lino</strong></p>
@@ -666,7 +666,7 @@ Warning
 <p><strong>This step is optional</strong>, depending on whether your resources include a website. You can skip this step if your resources consist only in interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>).</p>
 <section id="what-are-github-actions-and-github-pages-and-why-are-they-useful" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</h3>
-<p>If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you’ll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:</p>
+<p>If you are developing a website for educational purposes, you probably want to publish it online. If you perform the publication manually (building the website, then publishing it), you’ll have to re-do this series of tasks every time you change your website. This is time-consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:</p>
 <ul>
 <li>GitHub Actions is a tool built into GitHub that runs pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the <code>main</code> branch of your repository, without you doing anything manually.</li>
 <li>GitHub Pages is a another tool from Github that lets you publish static websites directly from a GitHub repository; it is often used for project documentation or personal portfolios.</li>
@@ -683,7 +683,7 @@ Warning
 </section>
 <section id="define-a-github-actions-workflow" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</h3>
-<p>You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install <code>R</code>, install packages…) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific <code>yaml</code> scripts, located in the <code>.github/workflows</code> directory of your repository. The templates already contain standard workflows that you can use as a starting point.</p>
+<p>You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install <code>R</code>, install packages…) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific <code>yaml</code> scripts, located in the <code>.github/workflows</code> directory of your repository. The templates already contain standard workflows that you can use as a starting point. We recommend that you have a careful look at these workflows; comments were added so that they are easy to follow.</p>
 <p>A few important remarks on automated deployment:</p>
 <ul>
 <li>The website is deployed at an URL that depends on the owner and the name of the repository: <code>https://{REPO_OWNER}.github.io/{REPO_NAME}/</code>.</li>
