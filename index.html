@@ -655,6 +655,22 @@ Warning
 <li>When developing resources, you should regularly run <code>renv::snapshot()</code>. This command will analyze your <code>R</code> scripts, detects what packages are used, and updates the <code>renv.lock</code> file. Do not forget to commit and push the changes to the <code>renv.lock</code> file!</li>
 <li>When you start working on your project with a new service, you should run <code>renv::restore()</code>. This command will reinstall all the packages listed in the <code>renv.lock</code> file.</li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>If you forget to update the <code>renv.lock</code> file, your Github Actions workflow are likely to fail, and you probably won’t be able to execute your <code>R</code> script in a new RStudio service. Keep calm, here is the solution: just run <code>renv::snapshot()</code>, commit and push the changes to the <code>renv.lock</code> file. This should solve the problem.</p>
+</div>
+</div>
+</div>
 <p>For more information, see the <a href="https://rstudio.github.io/renv/articles/renv.html">official documentation</a> of <code>renv</code>.</p>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
