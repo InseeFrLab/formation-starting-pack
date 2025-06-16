@@ -245,9 +245,23 @@ Then go to [https://datalab.sspcloud.fr/my-services](https://datalab.sspcloud.fr
 
 ::: {#fig-port5000 layout-ncol=2}
 
-![](pics/SSPCloud2.png)
+![](pics/SSPCloud2.png){width=350}
 
-![](pics/SSPCloud3.png)
+![](pics/SSPCloud3.png){width=400}
+
+Accessing website preview
+:::
+
+
+::: {.callout-warning collapse="false"}
+## What to do if you can't access the website preview?
+
+If you can't access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved: 
+
+- Close your RStudio/VSCode service (after committing and pushing all changes!);
+- Modify your configuration: in the "Network Access" tab, enable access to your service through port 5000 and save this new configuration;
+- Launch again your RStudio/VSCode service.
+
 :::
 
 ### Developing interactive scripts
