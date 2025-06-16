@@ -316,8 +316,15 @@ Notebooks will be written in the `_site` folder
 
 A major challenge in any data science project is to make sure that its codes can be re-run without error by someone working in a different environment (this is called __portability__). Various technical requirements must be met to ensure portability; one of them is to keep track of all packages needed to run the code (and of the exact version of each package!), so that a new user can reinstall them easily. This section explains how to manage these dependencies using the right tools.
 
+The dependency management tool depends on the language you use:
 
-#### __Managing dependencies with `R`: using `renv`__
+- If you use `R`, we recommend that you use `renv`;
+- If you use `Python`, we recommend that you use `uv`.
+
+
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
 
 `renv` is an R package that helps you manage the dependencies of each of your projects. It means that `renv` lets you keep track of what packages are needed to run your code, and in what exact version. More precisely, using `renv` adds two specific files to your project:
 
@@ -332,7 +339,9 @@ Here is how to use `renv`:
 
 For more information, see the [official documentation of `renv`](https://rstudio.github.io/renv/articles/renv.html).
 
-#### __Managing dependencies with Python: à compléter par Lino__
+## `Python` {{< fa brands python >}}
+
+__à compléter par Lino__
 
 
 
