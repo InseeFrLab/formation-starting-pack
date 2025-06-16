@@ -243,7 +243,7 @@ Once a configuration is defined, using it is very easy and very fast:
 
 ## Step 3: develop resources
 
-If you have created a repository from a template and defined a development configuration, developing resources basically means to modifying and extending the minimal examples available in your repository.
+If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.
 
 ### Developing a website
 
@@ -312,7 +312,7 @@ __This step is optional__, depending on whether your resources include a website
 
 If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you'll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages:
 
-- GitHub Actions is a tool built into GitHub that run pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the `main` branch of your repository, without you doing anything manually. 
+- GitHub Actions is a tool built into GitHub that runs pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the `main` branch of your repository, without you doing anything manually. 
 - GitHub Pages is a another tool from Github that lets you publish static websites directly from a GitHub repository; it is often used for project documentation or personal portfolios.
 
 The main message is: __by combining GitHub Actions with GitHub Pages, you can set things up so that every time you make changes to your repository, GitHub Actions automatically updates your website and publishes it on GitHub Pages.__ This will save you a lot of time!
