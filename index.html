@@ -193,7 +193,7 @@ window.Quarto = {
   <li><a href="#step-2-define-your-development-configuration-on-the-sspcloud" id="toc-step-2-define-your-development-configuration-on-the-sspcloud" class="nav-link" data-scroll-target="#step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</a>
   <ul class="collapse">
   <li><a href="#how-to-define-a-configuration" id="toc-how-to-define-a-configuration" class="nav-link" data-scroll-target="#how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</a></li>
-  <li><a href="#how-to-use-a-configuration" id="toc-how-to-use-a-configuration" class="nav-link" data-scroll-target="#how-to-use-a-configuration"><span class="header-section-number">3.2.2</span> How to use a configuration</a></li>
+  <li><a href="#how-to-use-an-existing-configuration" id="toc-how-to-use-an-existing-configuration" class="nav-link" data-scroll-target="#how-to-use-an-existing-configuration"><span class="header-section-number">3.2.2</span> How to use an existing configuration</a></li>
   </ul></li>
   <li><a href="#step-3-develop-resources" id="toc-step-3-develop-resources" class="nav-link" data-scroll-target="#step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</a>
   <ul class="collapse">
@@ -203,8 +203,9 @@ window.Quarto = {
   </ul></li>
   <li><a href="#step-4-set-up-a-github-pages-website" id="toc-step-4-set-up-a-github-pages-website" class="nav-link" data-scroll-target="#step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</a>
   <ul class="collapse">
-  <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch"><span class="header-section-number">3.4.1</span> Create the <code>gh-pages</code> branch</a></li>
-  <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow"><span class="header-section-number">3.4.2</span> Define a Github Actions workflow</a></li>
+  <li><a href="#what-are-github-actions-and-github-pages-and-why-are-they-useful" id="toc-what-are-github-actions-and-github-pages-and-why-are-they-useful" class="nav-link" data-scroll-target="#what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</a></li>
+  <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch"><span class="header-section-number">3.4.2</span> Create the <code>gh-pages</code> branch</a></li>
+  <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</a></li>
   </ul></li>
   <li><a href="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" id="toc-step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="nav-link" data-scroll-target="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</a></li>
   </ul></li>
@@ -293,7 +294,20 @@ Important&nbsp;1: Technical requirements to deploy educational resources
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><code>Jupyter</code> notebooks<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> offer an interactive interface that allows you to write <code>Python</code> code, test it, and see the result below the instruction rather than in a separate console. <code>Jupyter</code> notebooks are essential in the fields of data science and education and research because they greatly simplify exploration and experimentation.</p>
 <p>They allow you to combine text in <code>Markdown</code> format (a lighter markup text format than <code>HTML</code> or <span class="math inline">\(\LaTeX\)</span>), <code>Python</code> code, and <code>HTML</code> code for visualizations and animations in a single document.</p>
-<p>Initially, <code>Jupyter</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-jupyter" aria-label="Icon file-type-jupyter from vscode-icons Iconify.design set." title="Icon file-type-jupyter from vscode-icons Iconify.design set."></iconify-icon> was the only software offering these interactive features. Now, there are other ways to benefit from notebook advantages while having an IDE with more comprehensive features than <code>Jupyter</code>. For this reason, as of 2024, it is more practical to use <code>VSCode</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-vscode" aria-label="Icon file-type-vscode from vscode-icons Iconify.design set." title="Icon file-type-vscode from vscode-icons Iconify.design set."></iconify-icon>, a general-purpose code editor but offering excellent features in <code>Python</code>, than <code>Jupyter</code>. For more information on using notebooks in VSCode, refer to the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">official documentation</a>.</p>
+<p>Initially, <code>Jupyter</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-jupyter" aria-label="Icon file-type-jupyter from vscode-icons Iconify.design set." title="Icon file-type-jupyter from vscode-icons Iconify.design set."></iconify-icon> was the only software offering these interactive features. Now, there are other ways to benefit from notebook advantages while having an IDE with more comprehensive features than <code>Jupyter</code>. For this reason, as of 2025, we recommend developing resources with <code>VSCode</code> <iconify-icon role="img" inline="" icon="vscode-icons:file-type-vscode" aria-label="Icon file-type-vscode from vscode-icons Iconify.design set." title="Icon file-type-vscode from vscode-icons Iconify.design set."></iconify-icon>, a general-purpose code editor but offering excellent features in <code>Python</code>, rather than with <code>Jupyter</code>. For more information on using notebooks in VSCode, refer to the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">official documentation</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although we recommend developing resources with Vscode rather than with Jupyter, final users will be able to open your educational resources with Jupyter if they want to.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./pics/jupyter.png" class="img-fluid figure-img"></p>
@@ -379,7 +393,7 @@ Why <code>learnr</code> Is Not Recommended
 <li>scripts for Github Actions workflow for automated deployment (don’t be afraid, see below!).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -388,7 +402,7 @@ If you are not AIML4OS member and follow this guide anyway
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>You can still use the templates - just remove the style components using AIML4OS aesthetic.</p>
 </div>
@@ -422,7 +436,7 @@ If you are not AIML4OS member and follow this guide anyway
 <p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
 <section id="how-to-define-a-configuration" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="how-to-define-a-configuration"><span class="header-section-number">3.2.1</span> How to define a configuration</h3>
-<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. If you do so, you can come back to the SSP Cloud any time and resume developing your resources in only one click. Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.</p>
+<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. If you define a configuration, you can come back to the SSP Cloud any time and resume developing your resources in only one click. Defining a configuration may seem complicated the first time you do it, but you will get used to it in no time.</p>
 <p>Here is how to define a development configuration the SSP-Cloud.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
@@ -449,7 +463,7 @@ If you are not AIML4OS member and follow this guide anyway
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
-<li>Choose <code>Vscode-r-python-julia</code> and click Launch. We recommend using Vscode because developing Quarto resources is easier with VSCode than with Jupyter. However, final users will be able to open your educational resources with Jupyter;</li>
+<li>Choose <code>Vscode-r-python-julia</code> and click Launch;</li>
 <li>Customize the configuration by changing three settings:
 <ul>
 <li>In the “Friendly Name” field, choose a meaningful name (for instance <code>dev_Intro_To_Linear_Regression</code>);<br>
@@ -466,8 +480,8 @@ If you are not AIML4OS member and follow this guide anyway
 </div>
 </div>
 </section>
-<section id="how-to-use-a-configuration" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-use-a-configuration"><span class="header-section-number">3.2.2</span> How to use a configuration</h3>
+<section id="how-to-use-an-existing-configuration" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-use-an-existing-configuration"><span class="header-section-number">3.2.2</span> How to use an existing configuration</h3>
 <p>Once a configuration is defined, using it is very easy and very fast:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
@@ -495,7 +509,7 @@ If you are not AIML4OS member and follow this guide anyway
 </section>
 <section id="step-3-develop-resources" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources"><span class="header-section-number">3.3</span> Step 3: develop resources</h2>
-<p>If you have created a repository from a template and defined a development configuration, developing resources basically means to modifying the minimal examples available in your repository.</p>
+<p>If you have created a repository from a template and defined a development configuration, developing resources basically means to modifying and extending the minimal examples available in your repository.</p>
 <section id="developing-a-website" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="developing-a-website"><span class="header-section-number">3.3.1</span> Developing a website</h3>
 <p>You can develop you website by writing text and code chunks in the existing <code>qmd</code> files (<code>index.qmd</code> and <code>chapter1.qmd</code>). You can also extend the structure of the website by adding new Quarto documents (in the <code>chapters</code> subdirectory). These new documents must then be added to the website by modifying the <code>_quarto.yml</code> file in two places: in the <code>render</code> argument, and in the <code>contents</code> of the <code>sidebar</code> argument.</p>
@@ -541,21 +555,25 @@ Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
 <section id="step-4-set-up-a-github-pages-website" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="step-4-set-up-a-github-pages-website"><span class="header-section-number">3.4</span> Step 4: set up a Github pages website</h2>
 <p><strong>This step is optional</strong>, depending on whether your resources include a website. You can skip this step if your resources consist only in interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>).</p>
-<section id="create-the-gh-pages-branch" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="create-the-gh-pages-branch"><span class="header-section-number">3.4.1</span> Create the <code>gh-pages</code> branch</h3>
-<p>When developing resources, you will most likely use the <code>main</code> branch. However, for <code>Github Actions</code> to work, you need an additional branch <code>gh-pages</code> used by Github to deploy websites. This one will be rewritten automatically by <code>Github</code> after every Github Actions pipeline. However, you need to create it first. <strong>This should be done only once.</strong> Quarto documentation gives this command to create that branch. <strong>Be careful with that command, do not use before having done a first push on Github.</strong></p>
+<section id="what-are-github-actions-and-github-pages-and-why-are-they-useful" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="what-are-github-actions-and-github-pages-and-why-are-they-useful"><span class="header-section-number">3.4.1</span> What are Github Actions and Github pages and why are they useful?</h3>
+<p>If you are developing a website for educational purposes, you probably want to publish it online. If you do the publication step manually (building the website, then publishing it), you’ll have to re-do this series of tasks every time you change your website. This is time consuming, repetitive and boring. But fortunately, you can automate this process thanks to GitHub Actions and Github Pages. GitHub Actions is a tool built into GitHub that run pre-defined tasks like testing, building, and deploying code when specific events occur in a repository. For instance, GitHub Actions may perform a series of task every time you push on the <code>main</code> branch of your repository, without you doing anything manually. GitHub Pages is a another tool from Github that lets you publish static websites directly from a GitHub repository; it is often used for project documentation or personal portfolios. <strong>By combining GitHub Actions with GitHub Pages, you can set things up so that every time you make changes to your repository, GitHub Actions automatically updates your website and publishes it on GitHub Pages.</strong></p>
+</section>
+<section id="create-the-gh-pages-branch" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="create-the-gh-pages-branch"><span class="header-section-number">3.4.2</span> Create the <code>gh-pages</code> branch</h3>
+<p>When developing resources, you will most likely use the <code>main</code> branch. However, for <code>Github Actions</code> to work, you need an additional branch <code>gh-pages</code> used by Github to deploy websites. This one will be rewritten automatically by <code>Github</code> after every Github Actions workflow. However, you need to create it first. <strong>This should be done only once.</strong> Quarto documentation gives this command to create that branch. <strong>Be careful with that command, do not use before having done a first push on Github.</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="co"># make sure all changes are committed before running this!</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">"Initialising gh-pages branch"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="define-a-github-actions-workflow" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="define-a-github-actions-workflow"><span class="header-section-number">3.4.2</span> Define a Github Actions workflow</h3>
+<section id="define-a-github-actions-workflow" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</h3>
 <p>You need to define a Github Actions workflow to automate output construction and deployment. A GHA workflow is a list of instructions (for instance: install <code>R</code>, install packages…) that are executed automatically every time a certain event happens (for instance every time you push on the main branch). A GHA workflow is defined using specific <code>yaml</code> scripts, located in the <code>.github/workflows</code> directory of your repository. The templates already contain standard workflows that you can use as a starting point.</p>
 <p>A few important remarks on automated deployment:</p>
 <ul>
 <li>The website is deployed at an URL that depends on the owner and the name of the repository: <code>https://{REPO_OWNER}.github.io/{REPO_NAME}/</code>.</li>
-<li>You can monitor Github Actions jobs in the “Actions” tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work typically requires some debugging.</li>
+<li>You can monitor Github Actions jobs in the “Actions” tab of the Github repository of your project. Do not be afraid if your jobs fail at first; getting Github Actions to work often requires some debugging.</li>
 </ul>
 </section>
 </section>
