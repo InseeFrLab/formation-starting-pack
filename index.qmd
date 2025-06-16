@@ -249,7 +249,7 @@ If you have created a repository from a template and defined a development confi
 
 You can develop you website by writing text and code chunks in the existing `qmd` files (`index.qmd` and `chapter1.qmd`). You can also extend the structure of the website by adding new Quarto documents (in the `chapters` subdirectory). These new documents must then be added to the website by modifying the `_quarto.yml` file in two places: in the `render` argument, and in the `contents` of the `sidebar` argument.
 
-If your resources include a website, it is convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:
+It is often convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:
 
 ```{.bash}
 quarto preview --port 5000 --host 0.0.0.0
