@@ -175,7 +175,7 @@ The best way to develop resources on the SSP Cloud is to define your own develop
 
 Your configurations are listed on the right side of the "My services" tab. To use a configuration, you just have to click on Launch (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).
 
-![](pics/SSPCloud4.png){width=350}
+![](pics/SSPCloud4.png){width=600}
 
 
 ::: {.callout-warning collapse="false"}
