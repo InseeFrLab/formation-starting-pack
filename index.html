@@ -520,15 +520,39 @@ If you are not AIML4OS member and follow this guide anyway
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-port5000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<img src="pics/SSPCloud2.png" class="img-fluid figure-img">
+<div class="quarto-layout-cell" style="flex-basis: 46.7%;justify-content: center;">
+<p><img src="pics/SSPCloud2.png" class="img-fluid figure-img" width="350"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 53.3%;justify-content: center;">
+<p><img src="pics/SSPCloud3.png" class="img-fluid figure-img" width="400"></p>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-port5000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: <img src="pics/SSPCloud3.png" class="img-fluid figure-img">
+Figure&nbsp;1: Accessing website preview
 </figcaption>
 </figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to do if you can’t access the website preview?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>If you can’t access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved:</p>
+<ul>
+<li>Close your RStudio/VSCode service (after committing and pushing all changes!);</li>
+<li>Modify your configuration: in the “Network Access” tab, enable access to your service through port 5000 and save this new configuration;</li>
+<li>Launch again your RStudio/VSCode service.</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 <section id="developing-interactive-scripts" class="level3" data-number="3.3.2">
