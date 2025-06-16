@@ -339,6 +339,10 @@ Here is how to use `renv`:
 - When developing resources, you should regularly run `renv::snapshot()`. This command will analyze your `R` scripts, detects what packages are used, and updates the `renv.lock` file. Do not forget to commit and push the changes to the `renv.lock` file!
 - When you start working on your project with a new service, you should run `renv::restore()`. This command will reinstall all the packages listed in the `renv.lock` file.
 
+::: {.callout-warning collapse="false"}
+If you forget to update the `renv.lock` file, your Github Actions workflow are likely to fail, and you probably won't be able to execute your `R` script in a new RStudio service. Keep calm, here is the solution: just run `renv::snapshot()`, commit and push the changes to the `renv.lock` file. This should solve the problem.
+:::
+
 For more information, see the [official documentation](https://rstudio.github.io/renv/articles/renv.html) of `renv`.
 
 ## `Python` {{< fa brands python >}}
