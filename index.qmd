@@ -290,7 +290,9 @@ If you can't access the website preview because there is no link in the README, 
 
 ### Developing interactive scripts
 
-#### R
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
 
 A compléter sur Quarto/R
 
@@ -298,9 +300,7 @@ A compléter sur Quarto/R
 __The function `install.packages()` must not be used anywhere in your resources__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
 :::
 
-
-
-#### Python
+## `Python` {{< fa brands python >}}
 
 A compléter sur Notebooks Python.
 
@@ -311,6 +311,8 @@ quarto render --to ipynb
 ```
 
 Notebooks will be written in the `_site` folder
+
+:::
 
 ### Managing dependencies when developing resources
 
