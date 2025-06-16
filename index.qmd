@@ -201,6 +201,7 @@ Here is how to define a development configuration the SSP-Cloud.
 - Open the Rstudio service;
 - Rename the Rproj file with a meaningful name (for instance `Intro_To_Linear_Regression.Rproj`);
 - Click on the Rproj file to open the RStudio project;
+- Run `renv::restore()` (this may take a while);
 - You're all set!
 
 ## `Python` {{< fa brands python >}}
@@ -230,6 +231,7 @@ Once a configuration is defined, using it is very easy and very fast:
 - On the right side of the screen, find the configuration of your project and click on Launch;
 - Open the Rstudio service;
 - Click on the Rproj file to open the RStudio project;
+- Run `renv::restore()` (this may take a while);
 - You're all set!
 
 ## `Python` {{< fa brands python >}}
@@ -244,6 +246,14 @@ Once a configuration is defined, using it is very easy and very fast:
 ## Step 3: develop resources
 
 If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.
+
+::: {.callout-important collapse="false"}
+## Git, git, git, git, git
+
+__It is absolutely essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
+
+:::
+
 
 ### Developing and previewing a website
 
@@ -285,7 +295,7 @@ If you can't access the website preview because there is no link in the README, 
 A compléter sur Quarto/R
 
 ::: {.callout-warning collapse="false"}
-__The function `install.packages()` must not be used anywhere in the documents__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
+__The function `install.packages()` must not be used anywhere in your resources__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
 :::
 
 
@@ -302,11 +312,32 @@ quarto render --to ipynb
 
 Notebooks will be written in the `_site` folder
 
-### What you should do at all times when developing resources
+### Managing dependencies when developing resources
 
-__It is essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
+A major challenge in any data science project is to make sure that its codes can be re-run without error by someone working in a different environment (this is called __portability__). Various technical requirements must be met to ensure portability; one of them is to keep track of all packages needed to run the code (and of the exact version of each package!), so that a new user can reinstall them easily. This section explains how to manage these dependencies using the right tools.
 
-__Gérer les dépendances: à compléter par Lino__
+
+#### __Managing dependencies with `R`: using `renv`__
+
+`renv` is an R package that helps you manage the dependencies of each of your projects. It means that `renv` lets you keep track of what packages are needed to run your code, and in what exact version. More precisely, using `renv` adds two specific files to your project:
+
+- The lockfile `renv.lock` records information about every package used in the project, so that these packages can be re-installed on a new machine;
+- the `.Rprofile` project file. This file is run automatically every time you start `R` so that `renv` is used properly.
+
+Here is how to use `renv`:
+
+- The first step in using `renv` is to initiate the tracking of dependencies using `renv::init()`. __You do not need to do it if you use the `R` template__ because this was already done.
+- When developing resources, you should regularly run `renv::snapshot()`. This command will analyze your `R` scripts, detects what packages are used, and updates the `renv.lock` file. Do not forget to commit and push the changes to the `renv.lock` file!
+- When you start working on your project with a new service, you should run `renv::restore()`. This command will reinstall all the packages listed in the `renv.lock` file.
+
+For more information, see the [official documentation of `renv`](https://rstudio.github.io/renv/articles/renv.html).
+
+#### __Managing dependencies with Python: à compléter par Lino__
+
+
+
+
+
 
 ## Step 4: set up a Github pages website
 
