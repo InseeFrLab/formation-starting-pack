@@ -209,11 +209,11 @@ Here is how to define a development configuration the SSP-Cloud.
 
 - Go the "My Services" Tab and click on "New Service";
 - Choose `Vscode-r-python-julia` and click Launch;
-- Customize the configuration by changing three settings:
+- Customize the configuration by changing four settings:
   + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
   + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
   + In the "Network Access" tab, enable access to your service through port 5000;
-  + (optional) In the "Initialization scripts" tab, paste the URL of your init script (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh`);
+  + In the "Initialization scripts" tab, paste this URL `https://raw.githubusercontent.com/InseeFrLab/AIML4OS-template-quarto-python/refs/heads/main/init.sh`;
 - Click on Save configuration;
 - Click on Launch;
 - Open the Vscode service;
