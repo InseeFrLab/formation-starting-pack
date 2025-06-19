@@ -61,7 +61,7 @@ In the sections that follow, we'll begin by comparing various interactive enviro
 
 They allow you to combine text in `Markdown` format (a lighter markup text format than `HTML` or $\LaTeX$), `Python` code, and `HTML` code for visualizations and animations in a single document.
 
-[^jupyter]: `Jupyter` originated from the `IPython` project, an interactive environment for `Python` developed by Fernando Pérez in 2001. In 2014, the project evolved to support other programming languages in addition to Python, leading to the creation of the Jupyter project. The name "Jupyter" is an acronym referring to the three main languages it supports: `Julia`, `Python`, and `R`. `Jupyter` notebooks are crucial in the fields of data science and education and research because they greatly simplify exploration and experimentation.
+[^jupyter]: `Jupyter` originated from the `IPython` project, an interactive environment for `Python` developed by Fernando Pérez in 2001. In 2014, the project evolved to support other programming languages in addition to Python, leading to the creation of the Jupyter project. The name "Jupyter" is an acronym referring to the three main languages it supports: `Julia`, `Python`, and `R`.
 
 Initially, `Jupyter` {{< iconify vscode-icons:file-type-jupyter >}} was the only software offering these interactive features. Now, there are other ways to benefit from notebook advantages while having an IDE with more comprehensive features than `Jupyter`. For this reason, as of 2025, we recommend developing resources with `VSCode` {{< iconify vscode-icons:file-type-vscode >}}, a general-purpose code editor but offering excellent features in `Python`, rather than with `Jupyter`. For more information on using notebooks in VSCode, refer to the [official documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
 
@@ -245,7 +245,7 @@ Once a configuration is defined, using it is very easy and very fast:
 
 :::
 
-## Step 3: develop resources
+## Step 3: develop resources with Quarto
 
 If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.
 
@@ -263,10 +263,94 @@ Your scripts may require some data to run (for instance: training data for an al
 - Adapt the `download_data.sh` file so that the data is downloaded to your folder of choice;
 - Add this script as an initialization script in your configuration (see step 2).
 
+### Developing educational content in Quarto format
+
+Most of the resources you will develop will take the form of Quarto documents, that you will either provide to final users or compile to final outputs (for instance, websites or Jupyter notebooks). As a consequence, you must learn how to use Quarto. Fortunately, Quarto is easy to use, has an amazing documentation and there are plenty of resources online to help you.
+
+To to get started with Quarto documents, there are three basic elements you should know about: the header, raw text with Markdown formatting, and code chunks. We strongly recommend that you refer to the [official Quarto documentation](https://quarto.org/docs/guide/) and in particular to the [beginner Quarto tutorial](https://quarto.org/docs/get-started/hello/rstudio.html).
+
+#### The header
+
+Your Quarto document typically starts with a **YAML header** to define metadata such as author, title, and so on. Here is a simple example. You can also have a look at the headers of the Quarto files available in the templates.
+
+~~~yaml
+---
+title: "My beautiful Quarto Report"
+author: "Mickey mouse"
+---
+~~~
+
+#### Raw text with Markdown formatting
+
+A Quarto document contains blocks of text with Markdown formatting. See [here](https://quarto.org/docs/authoring/markdown-basics.html) for a detailed presentation of Markdown. Here is a short example:  
+
+~~~markdown
+This is text with *italics* and **bold**.
+
+We can define lists and sublists :
+
+- first element;
+- second element;
+    - first sub-element;
+    - second sub-element.
+~~~
+
+This code will result in the following formatted text:
+
+This is text with *italics* and **bold**.
+
+We can define lists and sublists:
+
+- first element;
+- second element;
+    - first sub-element;
+    - second sub-element.
+
+#### Code chunks
+
+A Quarto document can also contain blocks of code inside **code chunks**, denoted with triple backticks and the language you use. Adding a name to each chunk is a good practice (`nice_code` in the example below). You can use [chunk options](https://quarto.org/docs/computations/execution-options.html) to change the behavior of the chunk (for instance if you want to show some code without executing it). 
+
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
+
+````markdown
+```{{r nice_code}}
+# Load packages
+library(ggplot2)
+
+# Plot mpg vs hp
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point() +
+  theme_minimal()
+```
+````
+
+## `Python` {{< fa brands python >}}
+
+````markdown
+```{{python nice_code}}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+````
+:::
+
+
 
 ### Developing and previewing a website
 
-You can develop you website by writing text and code chunks in the existing `qmd` files (`index.qmd` and `chapter1.qmd`). You can also extend the structure of the website by adding new Quarto documents (in the `chapters` subdirectory). These new documents must then be added to the website by modifying the `_quarto.yml` file in two places: in the `render` argument, and in the `contents` of the `sidebar` argument.
+The first kind of output you may want to produce is a static website, consisting in a series of html documents. Developing a website with the AIML4OS templates is very easy: you just have to write text and code chunks in the existing `qmd` files (`index.qmd` and `chapter1.qmd`). You can also extend the structure of the website by adding new Quarto documents (preferably in the `chapters` subdirectory). These new chapters must then be added to the structure of the website by modifying the `_quarto.yml` file in two places: in the `render` argument, and in the `contents` of the `sidebar` argument. Importantly, there is no difference between Python and `R` when developing a Quarto website.
 
 It is often convenient to have a look at what this website looks like while developing it. You can preview your website from command line by executing:
 
@@ -286,7 +370,7 @@ Accessing website preview
 :::
 
 
-::: {.callout-warning collapse="false"}
+:::: {.callout-warning collapse="false"}
 ## What to do if you can't access the website preview?
 
 If you can't access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved: 
@@ -294,34 +378,30 @@ If you can't access the website preview because there is no link in the README, 
 - Close your RStudio/VSCode service (after committing and pushing all changes!);
 - Modify your configuration: in the "Network Access" tab, enable access to your service through port 5000 and save this new configuration;
 - Launch again your RStudio/VSCode service.
-
-:::
+::::
 
 ### Developing interactive scripts
+
+Depending on the resources you develop, it may make more sense to provide your learners with interactive environments rather than a static website, particularly if your resources contain exercises. Although the final outputs are quite different for `R` and Python (`Jupyter` notebooks for `Python`, Quarto documents with `R` chunks for `R`), these resources can nonetheless be developed using Quarto.
 
 ::: {.panel-tabset}
 
 ## {{< fa brands r-project >}}
 
-A compléter sur Quarto/R
-
-::: {.callout-warning collapse="false"}
+:::: {.callout-warning collapse="false"}
 __The function `install.packages()` must not be used anywhere in your resources__ because it is not the proper way to manage package requirements (see below for recommendations on dependency management).
-:::
+::::
 
 ## `Python` {{< fa brands python >}}
 
-A compléter sur Notebooks Python.
-
-It makes more sense to provide your learners with a Jupyter notebook. To generate it, you can write
+Depending on the resources you develop, it may make more sense to provide your learners with a Jupyter notebook rather than a static website, particularly if your resources contain exercises. The good news is that you can easily generate Jupyter notebooks from your Quarto source files: you just need to execute the following command in the command line, and the notebooks will be written in the `_site` folder.
 
 ```{.bash}
 quarto render --to ipynb
 ```
 
-Notebooks will be written in the `_site` folder
-
 :::
+
 
 ### Managing dependencies when developing resources
 
