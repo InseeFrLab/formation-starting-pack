@@ -487,6 +487,7 @@ This will install all packages exactly as specified in `uv.lock`. Finally, you n
 uv run quarto preview --port 5000 --host 0.0.0.0
 ```
 
+By that command, you say quarto to use your `uv` environment
 :::
 
 
