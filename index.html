@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lino Galiana and Olivier Meslin">
+<meta name="author" content="Lino Galiana">
+<meta name="author" content="Olivier Meslin">
 
 <title>Creating and disseminating educational resources for SSPCloud users – Training startup</title>
 <style>
@@ -233,9 +234,10 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p>Lino Galiana and Olivier Meslin </p>
+             <p>Lino Galiana </p>
+             <p>Olivier Meslin </p>
           </div>
   </div>
     
@@ -386,18 +388,18 @@ Why <code>learnr</code> Is Not Recommended
 <h2 data-number="3.1" class="anchored" data-anchor-id="step-1-create-a-github-repository-from-a-template"><span class="header-section-number">3.1</span> Step 1: create a <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> repository from a template</h2>
 <section id="what-are-templates-and-why-use-them" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="what-are-templates-and-why-use-them"><span class="header-section-number">3.1.1</span> What are templates and why use them?</h3>
-<p>The very first step towards developing educational resources consists in creating a <code>Github</code> repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. There are two different templates, depending on the language you want to use:</p>
+<p>The very first step towards developing educational resources consists in creating a <code>Github</code> repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. There are two different templates, depending on the language you want to use. They are both hosted on <code></code>:</p>
 <ul>
 <li><i class="fa-brands fa-r-project" aria-label="r-project"></i>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-r">template</a></li>
-<li><i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-python">template</a>.</li>
+<li><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i>: <a href="https://github.com/InseeFrLab/AIML4OS-template-quarto-python">template</a>.</li>
 </ul>
 <p>These templates contain all what you need to produce resources that can be easily made available as websites or as interactive environments on the SSP Cloud. More precisely, these templates contain:</p>
 <ul>
-<li>a minimal Quarto website with graphical elements reflecting AIML4OS aesthetic;</li>
-<li>a minimal example of a Quarto document producing a Jupyter Notebook (<i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code> only);</li>
-<li>a minimal example of a Quarto document mixing Markdown text and <code>R</code> code (<i class="fa-brands fa-r-project" aria-label="r-project"></i> only);</li>
+<li>a minimal <code>Quarto</code> website with graphical elements reflecting AIML4OS aesthetic;</li>
+<li>a minimal example of a <code>Quarto</code> document producing a Jupyter Notebook (<i class="fa-brands fa-python" aria-label="python"></i> <code>Python</code> only);</li>
+<li>a minimal example of a <code>Quarto</code> document mixing Markdown text and <code>R</code> code (<i class="fa-brands fa-r-project" aria-label="r-project"></i> only);</li>
 <li>what is needed to manage dependencies (what packages are needed to run the codes, and in which version);</li>
-<li>scripts for Github Actions workflow for automated deployment (don’t be afraid, see below!).</li>
+<li>scripts for <code>Github Actions</code> workflow for automated deployment (don’t be afraid, see below!).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
@@ -420,19 +422,12 @@ If you are not AIML4OS member and follow this guide anyway
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="how-to-use-a-template"><span class="header-section-number">3.1.2</span> How to use a template?</h3>
 <p>Here is what to do to re-use a template:</p>
 <ul>
-<li>Go to the <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> page of the chosen template;</li>
-<li>Click on the <em>“Use this template”</em> button and then on <em>“Create a new repository”</em> (see screenshot);</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
-</figure>
-</div>
+<li><p>Go to the <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> page of the chosen template;</p></li>
+<li><p>Click on the <em>“Use this template”</em> button and then on <em>“Create a new repository”</em> (see <strong>?@fig-template</strong>); <img src="https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp" id="fig-template" class="img-fluid quarto-figure quarto-figure-center anchored" style="width:50.0%" alt="Use this template button on Github"></p></li>
+<li><p>Choose carefully the owner and the name of the new repository:</p>
 <ul>
-<li>Choose carefully the owner and the name of the new repository:
-<ul>
-<li>Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the <code>AIML4OS</code> organization);</li>
-<li>Name: give the repository a meaningful name, for instance <em>“Intro_To_Deep_Learning”</em> or <em>“Intro_To_Linear_Regression”</em>.</li>
+<li><em>Owner</em>: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the <code>AIML4OS</code> organization);</li>
+<li><em>Name</em>: give the repository a meaningful name, for instance <em>“Intro_To_Deep_Learning”</em> or <em>“Intro_To_Linear_Regression”</em>.</li>
 </ul></li>
 </ul>
 </section>
@@ -440,15 +435,17 @@ If you are not AIML4OS member and follow this guide anyway
 <section id="step-2-define-your-development-configuration-on-the-sspcloud" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="step-2-define-your-development-configuration-on-the-sspcloud"><span class="header-section-number">3.2</span> Step 2: define your development configuration on the SSPCloud</h2>
 <!-- get started with `Quarto`   -->
-<p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.</p>
+<p>SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on SSPCloud because this will help a lot to make your educational resources reproducible.</p>
+<p>Some elements of this development environment will be used to provide a ready-to-use configuration for learners. However, learners don’t need to be familiar with the technical concepts behind them, as the pre-configured environments are there so that learners can concentrate on acquiring skills.</p>
 <section id="what-is-a-configuration-and-why-is-it-useful" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="what-is-a-configuration-and-why-is-it-useful"><span class="header-section-number">3.2.1</span> What is a configuration and why is it useful?</h3>
-<p>The best way to develop resources on the SSP Cloud is to define your own development configuration. In technical terms, a configuration is just a service available on the SSP Cloud (eg: RStudio or VSCode) with additional user-defined settings such as: the Github repository you want to work on, your Github credentials, the size of memory and number of CPU you want to use, the initialization script you want to run… Defining a configuration has two advantage:</p>
+<p>The best way to develop resources on the SSPCloud is to define your own development configuration. In technical terms, a configuration is just a service available on the SSPCloud (eg: <code>RStudio</code> or <code>VSCode</code>) with additional user-defined settings such as: the Github repository you want to work on, your Github credentials, the size of memory and number of CPU you want to use, the initialization script you want to run…</p>
+<p>Defining a configuration has two advantage:</p>
 <ul>
 <li>it lets you define the technical environment you want to use for a specific project;</li>
 <li>you can resume working on your project at any time in only one click, and be sure that the technical environment remains exactly the same.</li>
 </ul>
-<p>Your configurations are listed on the right side of the “My services” tab. To use a configuration, you just have to click on Launch (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).</p>
+<p>Your ready to use configurations are listed on the right side of the “My services” tab. To use a configuration, you just have to click on <code>Launch</code> (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).</p>
 <p><img src="pics/SSPCloud4.png" class="img-fluid" width="600"></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
@@ -469,7 +466,7 @@ Warning
 </section>
 <section id="how-to-define-a-configuration" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="how-to-define-a-configuration"><span class="header-section-number">3.2.2</span> How to define a configuration</h3>
-<p>Here is how to define a development configuration the SSP-Cloud.</p>
+<p>Here is how to define a ready to use development configuration using the SSPCloud. A video version is proposed below the text.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-r-project" aria-label="r-project"></i></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><code>Python</code> <i class="fa-brands fa-python" aria-label="python"></i></a></li></ul>
 <div class="tab-content">
@@ -497,7 +494,7 @@ Warning
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <ul>
 <li>Go the “My Services” Tab and click on “New Service”;</li>
-<li>Choose <code>Vscode-r-python-julia</code> and click Launch;</li>
+<li>Choose <code>Vscode-python</code> and click <code>Launch</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>;</li>
 <li>Customize the configuration by changing four settings:
 <ul>
 <li>In the “Friendly Name” field, choose a meaningful name (for instance <code>dev_Intro_To_Linear_Regression</code>);<br>
@@ -511,6 +508,23 @@ Warning
 <li>Open the Vscode service;</li>
 <li>You’re all set!</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video version
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Here’s a video summarizing these manual gestures for configuring the Python environment. Setting up the R environment is very similar. The values entered in the fields, in particular the initialization script, are those given in the example above: adapt these values to your needs.</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;"><iframe src="https://zoom.us/clips/embed/wGjagl_4RIemXEN98xvARg" frameborder="0" allowfullscreen="allowfullscreen" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></iframe></div>
 </div>
 </div>
 </div>
@@ -547,7 +561,7 @@ Warning
 <h2 data-number="3.3" class="anchored" data-anchor-id="step-3-develop-resources-with-quarto"><span class="header-section-number">3.3</span> Step 3: develop resources with Quarto</h2>
 <p>If you have created a repository from a template and defined a development configuration, developing resources basically means modifying and extending the minimal examples available in your repository.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -556,7 +570,7 @@ Git, git, git, git, git
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p><strong>It is absolutely essential that you commit and push your changes on a regular basis</strong> (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.</p>
 </div>
@@ -667,7 +681,7 @@ Figure&nbsp;1: Accessing website preview
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -676,7 +690,7 @@ What to do if you can’t access the website preview?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you can’t access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved:</p>
 <ul>
@@ -696,7 +710,7 @@ What to do if you can’t access the website preview?
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -705,7 +719,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p><strong>The function <code>install.packages()</code> must not be used anywhere in your resources</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
 </div>
@@ -743,7 +757,7 @@ Warning
 <li>When you start working on your project with a new service, you should run <code>renv::restore()</code>. This command will reinstall all the packages listed in the <code>renv.lock</code> file.</li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -752,7 +766,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you forget to update the <code>renv.lock</code> file, your Github Actions workflow are likely to fail, and you probably won’t be able to execute your <code>R</code> script in a new RStudio service. Keep calm, here is the solution: just run <code>renv::snapshot()</code>, commit and push the changes to the <code>renv.lock</code> file. This should solve the problem.</p>
 </div>
@@ -845,6 +859,7 @@ TO DO -->
 
 <ol>
 <li id="fn1"><p><code>Jupyter</code> originated from the <code>IPython</code> project, an interactive environment for <code>Python</code> developed by Fernando Pérez in 2001. In 2014, the project evolved to support other programming languages in addition to Python, leading to the creation of the Jupyter project. The name “Jupyter” is an acronym referring to the three main languages it supports: <code>Julia</code>, <code>Python</code>, and <code>R</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>By default, this service includes a <code>Python</code> installation, but does not offer additional software such as <code>R</code>. For multi-language training, you can use the <code>Vscode-r-python-julia</code> service.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
