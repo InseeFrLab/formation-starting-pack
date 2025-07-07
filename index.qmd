@@ -1,7 +1,9 @@
 ---
 title: "Creating and disseminating educational resources for `SSPCloud` users"
 subtitle: "Startup guide"
-author: "Lino Galiana and Olivier Meslin"
+author:   
+  - Lino Galiana   
+  - Olivier Meslin
 ---
 
 
@@ -126,18 +128,18 @@ This tutorial assumes that educational resources and training material will be m
 
 ### What are templates and why use them?
 
-The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. There are two different templates, depending on the language you want to use:
+The very first step towards developing educational resources consists in creating a `Github` repository that will contain them all. We recommend that you use the templates developed specifically for the AIML4OS project. There are two different templates, depending on the language you want to use. They are both hosted on `{{< fa brands github >}}`: 
 
 * {{< fa brands r-project >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-r)
-* {{< fa brands python >}} `Python`: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
+* `Python` {{< fa brands python >}}: [template](https://github.com/InseeFrLab/AIML4OS-template-quarto-python).
 
 These templates contain all what you need to produce resources that can be easily made available as websites or as interactive environments on the SSP Cloud. More precisely, these templates contain:
 
-- a minimal Quarto website with graphical elements reflecting AIML4OS aesthetic;
-- a minimal example of a Quarto document producing a Jupyter Notebook ({{< fa brands python >}} `Python` only);
-- a minimal example of a Quarto document mixing Markdown text and `R` code ({{< fa brands r-project >}} only);
+- a minimal `Quarto` website with graphical elements reflecting AIML4OS aesthetic;
+- a minimal example of a `Quarto` document producing a Jupyter Notebook ({{< fa brands python >}} `Python` only);
+- a minimal example of a `Quarto` document mixing Markdown text and `R` code ({{< fa brands r-project >}} only);
 - what is needed to manage dependencies (what packages are needed to run the codes, and in which version);
-- scripts for Github Actions workflow for automated deployment (don't be afraid, see below!).
+- scripts for `Github Actions` workflow for automated deployment (don't be afraid, see below!).
 
 ::: {.callout-note collapse="false"}
 ## If you are not AIML4OS member and follow this guide anyway
@@ -151,29 +153,32 @@ You can still use the templates - just remove the style components using AIML4OS
 Here is what to do to re-use a template:
 
 - Go to the `Github` {{< fa brands github >}} page of the chosen template;
-- Click on the _"Use this template"_ button and then on _"Create a new repository"_ (see screenshot);
-
-![](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp){width=50% fig-align="center"}
+- Click on the _"Use this template"_ button and then on _"Create a new repository"_ (see @fig-template);
+![Use this template button on `Github`](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp){#fig-template width=50% fig-align="center"}
 
 
 - Choose carefully the owner and the name of the new repository:
-  - Owner: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
-  - Name: give the repository a meaningful name, for instance _"Intro_To_Deep_Learning"_ or _"Intro_To_Linear_Regression"_.
+  - _Owner_: by default the owner is the creator of the fork, but it may be preferable to choose a Github organization (for instance the `AIML4OS` organization);
+  - _Name_: give the repository a meaningful name, for instance _"Intro_To_Deep_Learning"_ or _"Intro_To_Linear_Regression"_.
 
 ## Step 2: define your development configuration on the SSPCloud
 
 <!-- get started with `Quarto`  {{< iconify simple-icons:quarto style="color:#74aadb;" >}} -->
 
-SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on the SSPCloud because this will help a lot to make your educational resources reproducible.
+SSPCloud is not only useful to disseminate educational resources; it is also the right place to develop them. Doing so will facilitate resource dissemination as the environment used for training will be equivalent to the one used for development. In other words, we strongly recommend that you develop on SSPCloud because this will help a lot to make your educational resources reproducible.
+
+Some elements of this development environment will be used to provide a ready-to-use configuration for learners. However, learners don't need to be familiar with the technical concepts behind them, as the pre-configured environments are there so that learners can concentrate on acquiring skills. 
 
 ### What is a configuration and why is it useful?
 
-The best way to develop resources on the SSP Cloud is to define your own development configuration. In technical terms, a configuration is just a service available on the SSP Cloud (eg: RStudio or VSCode) with additional user-defined settings such as: the Github repository you want to work on, your Github credentials, the size of memory and number of CPU you want to use, the initialization script you want to run... Defining a configuration has two advantage:
+The best way to develop resources on the SSPCloud is to define your own development configuration. In technical terms, a configuration is just a service available on the SSPCloud (eg: `RStudio` or `VSCode`) with additional user-defined settings such as: the Github repository you want to work on, your Github credentials, the size of memory and number of CPU you want to use, the initialization script you want to run...
+
+Defining a configuration has two advantage:
 
 - it lets you define the technical environment you want to use for a specific project;
 - you can resume working on your project at any time in only one click, and be sure that the technical environment remains exactly the same.
 
-Your configurations are listed on the right side of the "My services" tab. To use a configuration, you just have to click on Launch (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).
+Your ready to use configurations are listed on the right side of the "My services" tab. To use a configuration, you just have to click on `Launch` (red rectangle). You can modify or delete an existing configuration by clicking on the contextual menu (green rectangle).
 
 ![](pics/SSPCloud4.png){width=600}
 
@@ -184,7 +189,7 @@ Defining a configuration may seem complicated the first time you do it, but you 
 
 ### How to define a configuration
 
-Here is how to define a development configuration the SSP-Cloud.
+Here is how to define a ready to use development configuration using the SSPCloud. A video version is proposed below the text.
 
 ::: {.panel-tabset}
 
@@ -208,7 +213,7 @@ Here is how to define a development configuration the SSP-Cloud.
 ## `Python` {{< fa brands python >}}
 
 - Go the "My Services" Tab and click on "New Service";
-- Choose `Vscode-r-python-julia` and click Launch;
+- Choose `Vscode-python` and click `Launch`[^options-ide];
 - Customize the configuration by changing four settings:
   + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
   + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
@@ -218,6 +223,18 @@ Here is how to define a development configuration the SSP-Cloud.
 - Click on Launch;
 - Open the Vscode service;
 - You're all set!
+
+[^options-ide]: By default, this service includes a `Python` installation, but does not offer additional software such as `R`. For multi-language training, you can use the `Vscode-r-python-julia` service.
+:::
+
+::: {.callout-tip collapse="false"}
+## Video version
+
+Here's a video summarizing these manual gestures for configuring the Python environment. Setting up the R environment is very similar. The values entered in the fields, in particular the initialization script, are those given in the example above: adapt these values to your needs.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;"><iframe src="https://zoom.us/clips/embed/wGjagl_4RIemXEN98xvARg" frameborder="0" allowfullscreen="allowfullscreen" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></iframe></div>
+```
 
 :::
 
