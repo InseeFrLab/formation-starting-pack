@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-905433ffa22618bb005779f2b23c5ce0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a98ec624fb63d9b712fc3a6f62e2b305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
@@ -210,7 +210,11 @@ window.Quarto = {
   <li><a href="#create-the-gh-pages-branch" id="toc-create-the-gh-pages-branch" class="nav-link" data-scroll-target="#create-the-gh-pages-branch"><span class="header-section-number">3.4.2</span> Create the <code>gh-pages</code> branch</a></li>
   <li><a href="#define-a-github-actions-workflow" id="toc-define-a-github-actions-workflow" class="nav-link" data-scroll-target="#define-a-github-actions-workflow"><span class="header-section-number">3.4.3</span> Define a Github Actions workflow</a></li>
   </ul></li>
-  <li><a href="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" id="toc-step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="nav-link" data-scroll-target="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</a></li>
+  <li><a href="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" id="toc-step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="nav-link" data-scroll-target="#step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</a>
+  <ul class="collapse">
+  <li><a href="#create-an-auto-launch-url" id="toc-create-an-auto-launch-url" class="nav-link" data-scroll-target="#create-an-auto-launch-url"><span class="header-section-number">3.5.1</span> Create an auto launch URL</a></li>
+  <li><a href="#add-your-resources-on-the-training-webpage-hosted-on-the-ssp-cloud" id="toc-add-your-resources-on-the-training-webpage-hosted-on-the-ssp-cloud" class="nav-link" data-scroll-target="#add-your-resources-on-the-training-webpage-hosted-on-the-ssp-cloud"><span class="header-section-number">3.5.2</span> Add your resources on the training webpage hosted on the SSP Cloud</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -479,7 +483,7 @@ Warning
 </li>
 <li>In the “Repository” field of the “Git” tab, paste the URL of the repository you created in step 1 (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression</code>);</li>
 <li>In the “Network Access” tab, enable access to your service through port 5000;</li>
-<li>(optional) In the “Initialization scripts” tab, paste the URL of your init script (for instance: <code>https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh</code>);</li>
+<li>(optional) In the “Initialization scripts” tab, paste the URL of your init script (for instance: <code>https://raw.githubusercontent.com/InseeFrLab/AIML4OS-template-quarto-r/refs/heads/main/init.sh</code>);</li>
 </ul></li>
 <li>Click on Save configuration;</li>
 <li>Click on Launch;</li>
@@ -796,6 +800,23 @@ Warning
 <section id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="step-5-make-your-interactive-environments-easily-available-on-the-ssp-cloud"><span class="header-section-number">3.5</span> Step 5: make your interactive environments easily available on the SSP Cloud</h2>
 <p><strong>This step is optional</strong>, depending on whether your resources include interactive environments (Jupyter notebooks for <code>Python</code>, interactive Quarto documents with <code>R</code> chunks for <code>R</code>). You can skip this step if your resources consist only in a Quarto website.</p>
+<section id="create-an-auto-launch-url" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="create-an-auto-launch-url"><span class="header-section-number">3.5.1</span> Create an auto launch URL</h3>
+<p>An interesting feature of SSPCloud is that you can make a whole training environment available through one URL link. For instance, you can provide trainees with an interactive environment that contains a Jupyter notebook, the data used by the notebook, all dependencies used by the notebook and sufficient resources to run the code, all in one click. To do so, just follow two steps:</p>
+<ul>
+<li><p>Define all aspects of the training environment using the usual interface. Here are the elements you will probably want to configure:</p>
+<ul>
+<li><code>Friendly Name</code>: do not forget to use a meaningful name (“Intro_To_Deep_Learning”), that will be more convenient for trainees;</li>
+<li><code>Resources</code>: choose the requests and limits that are well-suited for your use case. Some trial-and-error might be necessary here.</li>
+<li><code>Initialization scripts</code>: you can add here the URL to an initialization script. This script can do many things, such as installing dependencies and downloading data.</li>
+<li><code>GIT</code>: In the “Repository” field, paste the URL of the repository containing the resources.</li>
+</ul></li>
+<li><p>Copy the link provided at the top of the interface by clicking on “Copy Auto Launch URL”, and paste it wherever you want. Anyone with an SSPCloud account can access the content. Do not forget to test your link a few times to be sure it works!</p></li>
+</ul>
+<p><img src="pics/SSPCloud5.png" class="img-fluid" width="600"></p>
+</section>
+<section id="add-your-resources-on-the-training-webpage-hosted-on-the-ssp-cloud" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="add-your-resources-on-the-training-webpage-hosted-on-the-ssp-cloud"><span class="header-section-number">3.5.2</span> Add your resources on the training webpage hosted on the SSP Cloud</h3>
 <p>A compléter avec Inès</p>
 <!-- ## Make a ready to use link to your resources
 
@@ -815,6 +836,7 @@ Let's assume now you want learners to avoid copy-pasting code from your program 
 TO DO -->
 
 
+</section>
 </section>
 </section>
 
