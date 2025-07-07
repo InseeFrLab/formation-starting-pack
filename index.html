@@ -199,7 +199,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#step-3-develop-resources-with-quarto" id="toc-step-3-develop-resources-with-quarto" class="nav-link" data-scroll-target="#step-3-develop-resources-with-quarto"><span class="header-section-number">3.3</span> Step 3: develop resources with Quarto</a>
   <ul class="collapse">
-  <li><a href="#download-data-if-needed" id="toc-download-data-if-needed" class="nav-link" data-scroll-target="#download-data-if-needed"><span class="header-section-number">3.3.1</span> Download data (if needed)</a></li>
+  <li><a href="#manage-data-if-needed" id="toc-manage-data-if-needed" class="nav-link" data-scroll-target="#manage-data-if-needed"><span class="header-section-number">3.3.1</span> Manage data (if needed)</a></li>
   <li><a href="#developing-educational-content-in-quarto-format" id="toc-developing-educational-content-in-quarto-format" class="nav-link" data-scroll-target="#developing-educational-content-in-quarto-format"><span class="header-section-number">3.3.2</span> Developing educational content in Quarto format</a></li>
   <li><a href="#developing-and-previewing-a-website" id="toc-developing-and-previewing-a-website" class="nav-link" data-scroll-target="#developing-and-previewing-a-website"><span class="header-section-number">3.3.3</span> Developing and previewing a website</a></li>
   <li><a href="#developing-interactive-scripts" id="toc-developing-interactive-scripts" class="nav-link" data-scroll-target="#developing-interactive-scripts"><span class="header-section-number">3.3.4</span> Developing interactive scripts</a></li>
@@ -576,14 +576,45 @@ Git, git, git, git, git
 </div>
 </div>
 </div>
-<section id="download-data-if-needed" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="download-data-if-needed"><span class="header-section-number">3.3.1</span> Download data (if needed)</h3>
+<section id="manage-data-if-needed" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="manage-data-if-needed"><span class="header-section-number">3.3.1</span> Manage data (if needed)</h3>
+<p>Depending on your project, you might need to access some data, for instance to train a model. The simplest way to proceed is to upload your data on the S3 storage service of SSPCloud, and then download it from S3 into your service.</p>
+<section id="upload-data-to-s3" class="level4" data-number="3.3.1.1">
+<h4 data-number="3.3.1.1" class="anchored" data-anchor-id="upload-data-to-s3"><span class="header-section-number">3.3.1.1</span> Upload data to S3</h4>
+<p>The simplest way to upload data to S3 is to use the graphical interface available on SSPCloud. To to so, click on “File Explorer” on the left hand and then on “My data”.</p>
+<p><img src="pics/SSPCloud6.png" class="img-fluid" width="500"></p>
+<p>You can upload a file by navigating clicking on “Upload file” (blue rectangle). You can also create a subfolder by clicking on “Create directory” (red rectangle).</p>
+<p><img src="pics/SSPCloud7.png" class="img-fluid" width="500"></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Choose carefully in which subfolder you upload your files, because moving files from one subfolder to another one on S3 is not very convenient.</li>
+<li>Remember that only <strong>open data</strong> can be uploaded on S3.</li>
+<li>If you want other people to access the data, do not forget to make it public by clicking on the eye on the right hand side (green rectangle). Once again: no sensitive data!!</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="download-data" class="level4" data-number="3.3.1.2">
+<h4 data-number="3.3.1.2" class="anchored" data-anchor-id="download-data"><span class="header-section-number">3.3.1.2</span> Download data</h4>
 <p>Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:</p>
 <ul>
 <li>Upload your data files on the S3 storage of the SSP Cloud, and make sure that the files are public;</li>
 <li>Adapt the <code>download_data.sh</code> file so that the data is downloaded to your folder of choice;</li>
 <li>Add this script as an initialization script in your configuration (see step 2).</li>
 </ul>
+</section>
 </section>
 <section id="developing-educational-content-in-quarto-format" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="developing-educational-content-in-quarto-format"><span class="header-section-number">3.3.2</span> Developing educational content in Quarto format</h3>
@@ -681,7 +712,7 @@ Figure&nbsp;1: Accessing website preview
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -690,7 +721,7 @@ What to do if you can’t access the website preview?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you can’t access the website preview because there is no link in the README, it is likely that you forgot to open port 5000 in your configuration. This is easily solved:</p>
 <ul>
@@ -710,7 +741,7 @@ What to do if you can’t access the website preview?
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -719,7 +750,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p><strong>The function <code>install.packages()</code> must not be used anywhere in your resources</strong> because it is not the proper way to manage package requirements (see below for recommendations on dependency management).</p>
 </div>
@@ -757,7 +788,7 @@ Warning
 <li>When you start working on your project with a new service, you should run <code>renv::restore()</code>. This command will reinstall all the packages listed in the <code>renv.lock</code> file.</li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -766,7 +797,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>If you forget to update the <code>renv.lock</code> file, your Github Actions workflow are likely to fail, and you probably won’t be able to execute your <code>R</code> script in a new RStudio service. Keep calm, here is the solution: just run <code>renv::snapshot()</code>, commit and push the changes to the <code>renv.lock</code> file. This should solve the problem.</p>
 </div>
