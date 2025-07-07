@@ -287,10 +287,11 @@ You can upload a file by navigating clicking on "Upload file" (blue rectangle). 
 ![](pics/SSPCloud7.png){width=700}
 
 :::: {.callout-warning collapse="false"}
+## Three remarks to keep in mind
 
 - Choose carefully in which subfolder you upload your files, because moving files from one subfolder to another one on S3 is not very convenient.
 - Remember that only __open data__ can be uploaded on S3.
-- If you want other people to access the data, do not forget to make it public by clicking on the eye on the right hand side (green rectangle). Once again: no sensitive data!!
+- By default, only you can see the files upload in your bucket. If you want other people to access the data, __do not forget to make publicly available__ by clicking on the eye on the right hand side (green rectangle). Once again: no sensitive data!!
 
 ::::
 
