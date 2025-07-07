@@ -332,7 +332,8 @@ A Quarto document can also contain blocks of code inside **code chunks**, denote
 ## {{< fa brands r-project >}}
 
 ````markdown
-```{{r nice_code}}
+```{{r}}
+#| label: nice_code
 # Load packages
 library(ggplot2)
 
@@ -346,7 +347,8 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 ## `Python` {{< fa brands python >}}
 
 ````markdown
-```{{python nice_code}}
+```{{python}}
+#| label: nice_code
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -453,7 +455,37 @@ For more information, see the [official documentation](https://rstudio.github.io
 
 ## `Python` {{< fa brands python >}}
 
-__à compléter par Lino__
+`uv` is a fast Python package manager that helps you **track and manage dependencies per project**, similarly to `renv` for R. Using `uv`, you can ensure your project is reproducible, fast to install, and easy to deploy.
+
+More precisely, using `uv` introduces the following files to your project:
+
+- The `pyproject.toml` file defines your dependencies and project metadata;
+
+- To start using `uv`, run:
+
+  ```bash
+  uv init
+  ```
+
+This creates a `pyproject.toml` for your project if it doesn’t exist yet. This file will be the central piece of the dependency management. 
+
+- To add a package:
+
+  ```bash
+  uv add pandas
+  ```
+
+- To recreate your environment from scratch on a new machine (or new service):
+
+  ```bash
+  uv sync
+  ```
+
+This will install all packages exactly as specified in `uv.lock`. Finally, you need to change the command used to run your preview `quarto preview --port 5000 --host 0.0.0.0` to be
+
+```bash
+uv run quarto preview --port 5000 --host 0.0.0.0
+```
 
 :::
 
