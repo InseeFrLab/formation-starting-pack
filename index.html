@@ -610,10 +610,11 @@ Warning
 <h4 data-number="3.3.1.2" class="anchored" data-anchor-id="download-data"><span class="header-section-number">3.3.1.2</span> Download data</h4>
 <p>Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:</p>
 <ul>
-<li>Upload your data files on the S3 storage of the SSP Cloud, and make sure that the files are public;</li>
 <li>Adapt the <code>download_data.sh</code> file so that the data is downloaded to your folder of choice;</li>
 <li>Add this script as an initialization script in your configuration (see step 2).</li>
 </ul>
+<p>To obtain the S3 path to your data, use the File Explorer to navigate and find the file you want. The S3 path of your file is simply the path of the folder available in the top right corner of the explorer (red rectangle) and the name of the file (blue rectangle). In the screenshot below, the path of the first file is then: <code>s3/oliviermeslin/data_SILC_PUF/data_SILC_d2013.parquet</code>.</p>
+<p><img src="pics/SSPCloud8.png" class="img-fluid" width="500"></p>
 </section>
 </section>
 <section id="developing-educational-content-in-quarto-format" class="level3" data-number="3.3.2">
