@@ -255,7 +255,29 @@ If you have created a repository from a template and defined a development confi
 __It is absolutely essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
 :::
 
-### Download data (if needed)
+### Manage data (if needed)
+
+Depending on your project, you might need to access some data, for instance to train a model. The simplest way to proceed is to upload your data on the S3 storage service of SSPCloud, and then download it from S3 into your service.
+
+#### Upload data to S3
+
+The simplest way to upload data to S3 is to use the graphical interface available on SSPCloud. To to so, click on "File Explorer" on the left hand and then on "My data".
+
+![](pics/SSPCloud6.png){width=500}
+
+You can upload a file by navigating clicking on "Upload file" (blue rectangle). You can also create a subfolder by clicking on "Create directory" (red rectangle).
+
+![](pics/SSPCloud7.png){width=500}
+
+:::: {.callout-warning collapse="false"}
+
+- Choose carefully in which subfolder you upload your files, because moving files from one subfolder to another one on S3 is not very convenient.
+- Remember that only __open data__ can be uploaded on S3.
+- If you want other people to access the data, do not forget to make it public by clicking on the eye on the right hand side (green rectangle). Once again: no sensitive data!!
+
+::::
+
+#### Download data
 
 Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:
 
