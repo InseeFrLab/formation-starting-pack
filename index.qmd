@@ -272,13 +272,40 @@ If you have created a repository from a template and defined a development confi
 __It is absolutely essential that you commit and push your changes on a regular basis__ (every 30 minutes or so), because your service (Rstudio or VScode) is not persistent, meaning that any changes that were pushed before closing the service are permanently lost.
 :::
 
-### Download data (if needed)
+### Manage data (if needed)
+
+Depending on your project, you might need to access some data, for instance to train a model. The simplest way to proceed is to upload your data on the S3 storage service of SSPCloud, and then download it from S3 into your service.
+
+#### Upload data to S3
+
+The simplest way to upload data to S3 is to use the graphical interface available on SSPCloud. To to so, click on "File Explorer" on the left hand and then on "My data".
+
+![](pics/SSPCloud6.png){width=700}
+
+You can upload a file by navigating clicking on "Upload file" (blue rectangle). You can also create a subfolder by clicking on "Create directory" (red rectangle).
+
+![](pics/SSPCloud7.png){width=700}
+
+:::: {.callout-warning collapse="false"}
+## Three remarks to keep in mind
+
+- Choose carefully in which subfolder you upload your files, because moving files from one subfolder to another one on S3 is not very convenient.
+- Remember that only __open data__ can be uploaded on S3.
+- By default, only you can see the files upload in your bucket. If you want other people to access the data, __do not forget to make publicly available__ by clicking on the eye on the right hand side (green rectangle). Once again: no sensitive data!!
+
+::::
+
+#### Download data
 
 Your scripts may require some data to run (for instance: training data for an algorithm). Here is a way to download data automatically:
 
-- Upload your data files on the S3 storage of the SSP Cloud, and make sure that the files are public;
 - Adapt the `download_data.sh` file so that the data is downloaded to your folder of choice;
 - Add this script as an initialization script in your configuration (see step 2).
+
+To obtain the S3 path to your data, use the File Explorer to navigate and find the file you want. The S3 path of your file is simply the path of the folder available in the top right corner of the explorer (red rectangle) and the name of the file (blue rectangle). In the screenshot below, the path of the first file is then: `s3/oliviermeslin/data_SILC_PUF/data_SILC_d2013.parquet`.
+
+![](pics/SSPCloud8.png){width=700}
+
 
 ### Developing educational content in Quarto format
 
