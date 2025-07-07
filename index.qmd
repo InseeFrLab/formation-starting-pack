@@ -201,7 +201,7 @@ Here is how to define a ready to use development configuration using the SSPClou
   + In the "Friendly Name" field, choose a meaningful name (for instance `dev_Intro_To_Linear_Regression`);   
   + In the "Repository" field of the "Git" tab, paste the URL of the repository you created in step 1 (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression`);
   + In the "Network Access" tab, enable access to your service through port 5000;
-  + (optional) In the "Initialization scripts" tab, paste the URL of your init script (for instance: `https://www.github.com/AIML4OS/Intro_To_Linear_Regression/init.sh`);
+  + (optional) In the "Initialization scripts" tab, paste the URL of your init script (for instance: `https://raw.githubusercontent.com/InseeFrLab/AIML4OS-template-quarto-r/refs/heads/main/init.sh`);
 - Click on Save configuration;
 - Click on Launch;
 - Open the Rstudio service;
@@ -498,6 +498,23 @@ A few important remarks on automated deployment:
 
 __This step is optional__, depending on whether your resources include interactive environments (Jupyter notebooks for `Python`, interactive Quarto documents with `R` chunks for `R`). You can skip this step if your resources consist only in a Quarto website.
 
+
+### Create an auto launch URL
+
+An interesting feature of SSPCloud is that you can make a whole training environment available through one URL link. For instance, you can provide trainees with an interactive environment that contains a Jupyter notebook, the data used by the notebook, all dependencies used by the notebook and sufficient resources to run the code, all in one click. To do so, just follow two steps:
+
+- Define all aspects of the training environment using the usual interface. Here are the elements you will probably want to configure:
+
+  - `Friendly Name`: do not forget to use a meaningful name ("Intro_To_Deep_Learning"), that will be more convenient for trainees;
+  - `Resources`: choose the requests and limits that are well-suited for your use case. Some trial-and-error might be necessary here. 
+  - `Initialization scripts`: you can add here the URL to an initialization script. This script can do many things, such as installing dependencies and downloading data.
+  - `GIT`: In the "Repository" field, paste the URL of the repository containing the resources.
+
+- Copy the link provided at the top of the interface by clicking on "Copy Auto Launch URL", and paste it wherever you want. Anyone with an SSPCloud account can access the content. Do not forget to test your link a few times to be sure it works!
+
+![](pics/SSPCloud5.png){width=600}
+
+### Add your resources on the training webpage hosted on the SSP Cloud
 
 A compléter avec Inès
 
