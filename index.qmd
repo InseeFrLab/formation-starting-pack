@@ -359,7 +359,8 @@ A Quarto document can also contain blocks of code inside **code chunks**, denote
 ## {{< fa brands r-project >}}
 
 ````markdown
-```{{r nice_code}}
+```{{r}}
+#| label: nice_code
 # Load packages
 library(ggplot2)
 
@@ -373,7 +374,8 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 ## `Python` {{< fa brands python >}}
 
 ````markdown
-```{{python nice_code}}
+```{{python}}
+#| label: nice_code
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -480,8 +482,39 @@ For more information, see the [official documentation](https://rstudio.github.io
 
 ## `Python` {{< fa brands python >}}
 
-__à compléter par Lino__
+`uv` is a fast Python package manager that helps you **track and manage dependencies per project**, similarly to `renv` for R. Using `uv`, you can ensure your project is reproducible, fast to install, and easy to deploy.
 
+More precisely, using `uv` introduces the following files to your project:
+
+- The `pyproject.toml` file defines your dependencies and project metadata;
+
+- To start using `uv`, run:
+
+  ```bash
+  uv init
+  ```
+
+This creates a `pyproject.toml` for your project if it doesn’t exist yet. This file will be the central piece of the dependency management. 
+
+- To add a package:
+
+  ```bash
+  uv add pandas
+  ```
+
+- To recreate your environment from scratch on a new machine (or new service):
+
+  ```bash
+  uv sync
+  ```
+
+This will install all packages exactly as specified in `uv.lock`. Finally, you need to change the command used to run your preview `quarto preview --port 5000 --host 0.0.0.0` to be
+
+```bash
+uv run quarto preview --port 5000 --host 0.0.0.0
+```
+
+By that command, you say quarto to use your `uv` environment
 :::
 
 
@@ -525,6 +558,42 @@ A few important remarks on automated deployment:
 
 __This step is optional__, depending on whether your resources include interactive environments (Jupyter notebooks for `Python`, interactive Quarto documents with `R` chunks for `R`). You can skip this step if your resources consist only in a Quarto website.
 
+::: {.callout-warning}
+## Python users only: accessing the automatically built `Jupyter Notebook`
+
+Up to now, we mostly focused on the production and the deployment of static content. A small precision need to be done for producing and giving access to Jupyter Notebooks. 
+
+Regarding the production side, it is automatically done by the Github Actions file provided on the Python template. This line in `.github/worfklows/prod.yml` 
+
+```yaml
+# Step 4b: Render Quarto in uv virtual environment (HTML)
+- name: Render in ipynb
+  run: uv run quarto render --to ipynb
+```
+
+Notebooks are automatically made available through the website deployed via Github Actions. Their location on this site depends on the path of the qmd used to build them. For example, for the example python template, the notebook is accessible via [this link](https://inseefrlab.github.io/AIML4OS-template-quarto-python/chapters/chapter1.ipynb). If you try to open it directly via the browser, you will get a raw file. The aim of the init script we're about to present is to use sspcloud to make this file usable.
+
+:::
+
+### Create an initialization script to prepare your environment for trainees
+
+Up to now, we have covered initiaization of the trainers' development environment.
+
+However, while the pre-configuration of a development environment is practical but not essential when building educational resources, it is mandatory when making ready-to-use tutorials available to trainees. For this purpose, _templates_ offer an example to be edited. depending on the URL on which your resources are made available.
+
+::: {.panel-tabset}
+## `Python` {{< fa brands python >}}
+
+We assume that the notebook to be recovered is available at <https://inseefrlab.github.io/AIML4OS-template-quarto-python/chapters/chapter1.ipynb> (see above to understand how it was produced).
+
+The script provided in the _template_, in the `sspcloud/init-trainees.sh` folder, proposes a model for retrieving and preconfiguring the environment for trainees on the sspcloud. Overall, the idea is to automatically perform the following steps for trainees:
+
+- Retrieve and install the environment needed to run _notebook_. This is greatly facilitated by the use of `uv`.
+- Download the notebooks to be opened by trainees.
+
+By customizing this script, you should have a ready-to-use environment. To test that the edits you've made to this one work, you can open a terminal on VSCode and run it from the command line. If this test is successful, the script has a good chance of running in a blank environment and creating a customized environment for your training. The aim of the next section is to show you how. Don't forget to commit the modifications you made to that script otherwise, in the next step, trainees won't endup with your notebook ready to use in their environment. 
+:::
+
 
 ### Create an auto launch URL
 
@@ -533,17 +602,36 @@ An interesting feature of SSPCloud is that you can make a whole training environ
 - Define all aspects of the training environment using the usual interface. Here are the elements you will probably want to configure:
 
   - `Friendly Name`: do not forget to use a meaningful name ("Intro_To_Deep_Learning"), that will be more convenient for trainees;
-  - `Resources`: choose the requests and limits that are well-suited for your use case. Some trial-and-error might be necessary here. 
-  - `Initialization scripts`: you can add here the URL to an initialization script. This script can do many things, such as installing dependencies and downloading data.
+  - `Resources`: choose the requests and limits that are well-suited for your use case. Some trial-and-error might be necessary here. However, __in most cases, you don't need to change the resources there__ because sspcloud is giving you large maximal resources that fit most needs. 
+  - `Initialization scripts`: you can add here the URL to an initialization script (see below). 
   - `GIT`: In the "Repository" field, paste the URL of the repository containing the resources.
 
 - Copy the link provided at the top of the interface by clicking on "Copy Auto Launch URL", and paste it wherever you want. Anyone with an SSPCloud account can access the content. Do not forget to test your link a few times to be sure it works!
 
 ![](pics/SSPCloud5.png){width=600}
 
+Regarding the initialization script, previous section gave you indication on how to personnalize it. You must put the raw github url of the script. For instance, if your github repository follows the `Python` template (https://github.com/InseeFrLab/AIML4OS-template-quarto-python), the init script might be found on `sspcloud/init-trainees.sh` file. You must use the raw file available on Github. It is available by clicking on the raw button when opening the file on Github. The url should have a pattern similar to this one: <https://raw.githubusercontent.com/InseeFrLab/AIML4OS-template-quarto-python/refs/heads/main/sspcloud/init-trainees.sh>.
+
+### Create a launch button for your website (bonus)
+
+Let's say you have done everything described before. Then you end up with a very long URL, let's say <https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Python%20tutorial%20example&version=2.3.15&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&autoLaunch=true>. 
+
+You can of course ask trainees to copy and paste this url, enter it in the search bar of their browser and launch the search to access the site. But it's more user-friendly to have a ready-to-use button. Just take this one for Python as a basis and replace it with your own quick launch URL:
+
+```bash
+<a href="URL_THERE" target="_blank" rel="noopener" data-original-href="URL_THERE"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Lancer_avec_VSCode-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a>
+```
+
+which, when formatted, will give a button like this
+
+```{=html}
+<a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Python%20tutorial%20example&version=2.3.15&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Python%20tutorial%20example&version=2.3.15&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Lancer_avec_VSCode-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a>
+```
+
+
 ### Add your resources on the training webpage hosted on the SSP Cloud
 
-A compléter avec Inès
+to be completed
 
 <!-- ## Make a ready to use link to your resources
 
