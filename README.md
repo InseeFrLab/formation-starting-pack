@@ -1,3 +1,3 @@
 # Minimum Quarto website
 
-https://inseefrlab.github.io/formation-starting-pack/
+This is the source repo for this tutorial: https://aiml4os.github.io/training-material-starting-pack/
